@@ -14,13 +14,10 @@ import StoriesScreen from "../screens/StoriesScreen";
 import SpotlightScreen from "../screens/SpotlightScreen";
 import ProfileStack from "../screens/ProfileScreen";
 import Test from "../screens/Test";
-
 // Stacks
 import ChatStack from "./ChatStack";
-import MiniStack from "../navigation/MiniStack";
-import RecipesScreen from "../screens/RecipesScreen";
-import RecipeScreen from "../screens/RecipeScreen";
 
+import MiniStack from "../navigation/MiniStack";
 const Tab = createBottomTabNavigator();
 
 export default function UserStack() {
@@ -77,6 +74,9 @@ export default function UserStack() {
             } else if (route.name === "SpotlightStack") {
               iconName = "ios-play-outline";
               iconColor = focused ? "red" : "grey";
+            } else if (route.name === "MiniStack") {
+              iconName = "ios-play-outline";
+              iconColor = focused ? "red" : "grey";
             }
             return <Ionicons name={iconName} size={size} color={iconColor} />;
           },
@@ -110,9 +110,14 @@ export default function UserStack() {
           options={screenOptions}
         />
         <Tab.Screen
+          name="MiniStack"
+          component={MiniStack}
+          options={{ headerShown: false, tabBarShowLabel: false }}
+        />
+        <Tab.Screen
           name="SpotlightStack"
           component={SpotlightScreen}
-          options={screenOptions}
+          options={{ ...screenOptions, headerShown: false }}
         />
       </Tab.Navigator>
     </NavigationContainer>

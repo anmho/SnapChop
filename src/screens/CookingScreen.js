@@ -1,47 +1,60 @@
 import React from "react";
-import TacosIcon from "../../assets/img/tacos_icon.png"
-import CookingIcon from  "../../assets/img/img_05.png"
+import Chef from "../../assets/img/chef.png";
+import CookingIcon from "../../assets/img/img_05.png";
+import Icon1 from "../../assets/img/img_01.png";
+import Icon2 from "../../assets/img/img_02.png";
+
 // import { View, Text } from "react-native";
-import { Box, Heading, AspectRatio, Image, Text, Center, HStack, Stack, NativeBaseProvider } from "native-base";
+import {
+  Box,
+  Heading,
+  Image,
+  View,
+  Text,
+  Center,
+  HStack,
+  VStack,
+  ScrollView,
+} from "native-base";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const Example = () => {
-    return <Box alignItems="center">
-        <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
-        borderColor: "coolGray.600",
-        backgroundColor: "gray.700"
-      }} _web={{
-        shadow: 2,
-        borderWidth: 0
-      }} _light={{
-        backgroundColor: "gray.50"
-      }}>
-          <Stack p="4" space={3}>
-            <Stack space={2}>
-              <Heading size="md" ml="-1">
-                Taco
-              </Heading>
-            </Stack>
-            <Box>
-            <AspectRatio w="100%" >
-                <Image source={(TacosIcon)} alt={"img"}/>
-            </AspectRatio>
-            <AspectRatio w="100%" >
-                <Image source={(CookingIcon)} alt={"img"}/>
-            </AspectRatio>
+export default function CookingScreen() {
+  return (
+    <View>
+      <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
+        Cooking with Chefs
+      </Heading>
+      <ScrollView>
+        <Center mb="4">
+          <Image source={Chef} alt={"img"} size="xl" mb={5} />
+          <Box
+            bg={"gray.300"}
+            borderRadius={10}
+            alignItems={"center"}
+            minW={"60%"}
+          >
+            <Text fontFamily={"Graphik-Medium"}>"How to" - Chop Onion</Text>
           </Box>
-            <HStack alignItems="center" space={4} justifyContent="space-between">
-              <HStack alignItems="center">
-              </HStack>
-            </HStack>
-          </Stack>
-        </Box>
-      </Box>;
-  };
-
-export default function CookingScreen () {
-    return (
-        <Center flex={1} px="3">
-            <Example />
+          <Image source={Chef} alt={"img"} size="xl" mb={5} mt={10} />
+          <Box
+            bg={"gray.300"}
+            borderRadius={10}
+            alignItems={"center"}
+            minW={"60%"}
+          >
+            <Text fontFamily={"Graphik-Medium"}>"How to" - Saute</Text>
+          </Box>
+          <Image source={Chef} alt={"img"} size="xl" mb={5} mt={10} />
+          <Box
+            bg={"gray.300"}
+            borderRadius={10}
+            alignItems={"center"}
+            minW={"60%"}
+          >
+            <Text fontFamily={"Graphik-Medium"}>"How to" - Saute</Text>
+          </Box>
         </Center>
-    );
+      </ScrollView>
+    </View>
+  );
 }
