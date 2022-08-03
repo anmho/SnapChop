@@ -68,11 +68,11 @@ export default function RecipesScreen({
         </Box>
         {/* Ingredients */}
         <ScrollView horizontal={true}>
-          {recipe.ingredients.map((ingredient) => (
+          {recipe.ingredients.map(({name, image, amount}) => (
             <Ingredient
-              name={ingredient.name}
-              image={ingredient.image}
-              amount={ingredient.amount}
+              name={name}
+              image={image}
+              amount={amount}
             />
           ))}
         </ScrollView>
