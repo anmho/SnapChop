@@ -9,14 +9,14 @@ import SnappyMeal from "../screens/SnappyMeal";
 
 const Stack = createStackNavigator();
 
-export default function RecipesStack() {
+export default function RecipesStack({ navigation }) {
   let screenOptions = {
     tabBarShowLabel: false,
   };
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="RecipesScreen">
       <Stack.Screen
-        name="Recipes"
+        name="RecipesScreen"
         component={RecipesScreen}
         options={{ screenOptions }}
       />

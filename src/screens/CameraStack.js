@@ -20,6 +20,7 @@ import ScanResults from "../components/ScanResults";
 import StatBar from "../components/StatBar";
 import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
+import RecipeScreen from "../screens/RecipeScreen";
 
 export function CameraScreen({ navigation, focused }) {
   let cameraRef = useRef();
@@ -123,7 +124,7 @@ export function CameraScreen({ navigation, focused }) {
       />
       <CameraOptions flipCamera={flipCamera} />
       <CameraActions checkGallery={checkGallery} takePhoto={takePhoto} />
-      <ScanResults scanResultsRef={scanResultsRef} />
+      <ScanResults scanResultsRef={scanResultsRef} navigation={navigation} />
     </>
   );
 }
@@ -140,6 +141,11 @@ export default function CameraStack() {
       <Stack.Screen
         name="Profile"
         component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Recipe"
+        component={RecipeScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

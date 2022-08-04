@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Button, TouchableOpacity } from "react-native";
-
 import { getAuth, signOut } from "firebase/auth";
+import { HeaderBackButton } from "@react-navigation/stack";
 
 // Screens
 import MapStack from "../screens/MapStack";
@@ -16,8 +16,10 @@ import ProfileStack from "../screens/ProfileScreen";
 import Test from "../screens/Test";
 // Stacks
 import ChatStack from "./ChatStack";
+import RecipeScreen from "../screens/RecipeScreen";
+import SnapChopStack from "./SnapChopStack";
+import TutorialsStack from "../screens/TutorialsStack";
 
-import MiniStack from "../navigation/MiniStack";
 const Tab = createBottomTabNavigator();
 
 export default function UserStack() {
@@ -27,6 +29,7 @@ export default function UserStack() {
   let screenOptions = {
     tabBarShowLabel: false,
     headerLeft: () => (
+      // <StatBar />
       <Button
         onPress={() => {
           signOut(auth)
@@ -50,8 +53,8 @@ export default function UserStack() {
         activeColor="#f0edf6"
         inactiveColor="#3e2465"
         barStyle={{ backgroundColor: "#694fad" }}
-        // initialRouteName="Test"
-        initialRouteName="CameraStack"
+        initialRouteName="SnapChopStack"
+        // initialRouteName="CameraStack"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, size }) => {
             let iconName;
@@ -89,6 +92,24 @@ export default function UserStack() {
           options={{ ...screenOptions, headerShown: false }}
         /> */}
 
+        {/* <Tab.Screen
+          name="Test"
+          component={SnapChopStack}
+          options={{ ...screenOptions, headerShown: false }}
+        /> */}
+
+        <Tab.Screen
+          name="Test"
+          component={TutorialsStack}
+          options={{ ...screenOptions, headerShown: false }}
+        />
+
+        <Tab.Screen
+          name="SnapChopStack"
+          component={SnapChopStack}
+          options={{ ...screenOptions, headerShown: false }}
+        />
+
         <Tab.Screen
           name="MapStack"
           component={MapStack}
@@ -108,11 +129,6 @@ export default function UserStack() {
           name="StoriesStack"
           component={StoriesScreen}
           options={screenOptions}
-        />
-        <Tab.Screen
-          name="MiniStack"
-          component={MiniStack}
-          options={{ headerShown: false, tabBarShowLabel: false }}
         />
         <Tab.Screen
           name="SpotlightStack"
