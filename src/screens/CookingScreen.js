@@ -1,7 +1,7 @@
 import React from "react";
 import Chef from "../../assets/img/chef.png";
 import CookingIcon from "../../assets/img/img_05.png";
-import Icon1 from "../../assets/img/img_01.png";
+import ChopOnionIMG from "../../assets/img/img_40.png";
 import Icon2 from "../../assets/img/img_02.png";
 
 // import { View, Text } from "react-native";
@@ -26,7 +26,13 @@ export default function CookingScreen() {
       </Heading>
       <ScrollView>
         <Center mb="4">
-          <Image source={Chef} alt={"img"} size="xl" mb={5} />
+          <Image
+            source={ChopOnionIMG}
+            alt={"img"}
+            size="xl"
+            mb={5}
+            borderRadius={10}
+          />
           <Box
             bg={"gray.300"}
             borderRadius={10}

@@ -13,7 +13,7 @@ import {
   Image,
 } from "native-base";
 import Chef from "../../assets/img/chef.png";
-import MainImg from "../../assets/img/img_4.png";
+import MainImg from "../../assets/img/img_04.png";
 import FactsImg from "../../assets/img/img_02.png";
 import RecipesImg from "../../assets/img/img_05.png";
 

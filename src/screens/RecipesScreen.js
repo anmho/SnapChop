@@ -1,8 +1,12 @@
 import React from "react";
 import Chef from "../../assets/img/chef.png";
 import CookingIcon from "../../assets/img/img_05.png";
+import HeadICon from "../../assets/img/img_04.png";
 import Icon1 from "../../assets/img/img_01.png";
-// import { View, Text } from "react-native";
+import SnappyMealIMG from "../../assets/img/img_12.png";
+import CStudentIMG from "../../assets/img/img_08.png";
+import BreakfastIMG from "../../assets/img/img_09.png";
+
 import {
   Box,
   Heading,
@@ -23,14 +27,12 @@ export default function RecipesScreen({ navigation }) {
         Our Own Recipes
       </Heading>
       <Center mb="4">
-        <Image source={Chef} alt={"img"} size="xl" />
+        <Image source={HeadICon} alt={"img"} size="xl" />
       </Center>
       <ScrollView>
         <VStack flex="1">
           <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("BreakfastBowls")}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate("BakedGoods")}>
               <Box
                 bg={"white"}
                 width={"110%"}
@@ -44,7 +46,7 @@ export default function RecipesScreen({ navigation }) {
                   fontFamily={"Graphik-Medium"}
                   ml={3}
                 >
-                  Breakfast Bowls
+                  Baked Goods
                 </Text>
                 <Center>
                   <Image source={Chef} alt={"img"} size="xl" />
@@ -93,11 +95,13 @@ export default function RecipesScreen({ navigation }) {
                   Snappy Meals
                 </Text>
                 <Center>
-                  <Image source={Icon1} alt={"img"} size="xl" />
+                  <Image source={SnappyMealIMG} alt={"img"} size="xl" />
                 </Center>
               </Box>
             </TouchableOpacity>
-            <TouchableOpacity onPress={console.log("click")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("BreakfastBowls")}
+            >
               <Box
                 bg={"white"}
                 width={"110%"}
@@ -114,7 +118,7 @@ export default function RecipesScreen({ navigation }) {
                   Breakfast Bowls
                 </Text>
                 <Center>
-                  <Image source={Icon1} alt={"img"} size="xl" />
+                  <Image source={BreakfastIMG} alt={"img"} size="xl" />
                 </Center>
               </Box>
             </TouchableOpacity>
@@ -137,7 +141,7 @@ export default function RecipesScreen({ navigation }) {
                   For Students
                 </Text>
                 <Center>
-                  <Image source={Icon1} alt={"img"} size="xl" />
+                  <Image source={CStudentIMG} alt={"img"} size="xl" />
                 </Center>
               </Box>
             </TouchableOpacity>
@@ -197,7 +201,7 @@ export default function RecipesScreen({ navigation }) {
                   fontFamily={"Graphik-Medium"}
                   ml={3}
                 >
-                  Salsa Dips
+                  Dips
                 </Text>
                 <Image source={Icon1} alt={"img"} size="xl" />
               </Box>

@@ -6,7 +6,8 @@ import RecipesScreen from "../screens/RecipesScreen";
 import BreakfastBowls from "../screens/BreakfastBowls";
 import VeganLife from "../screens/VeganLife";
 import SnappyMeal from "../screens/SnappyMeal";
-
+import BakedGood from "../screens/BakedGoods";
+import PotatoBowl from "../screens/PotatoBowl";
 const Stack = createStackNavigator();
 
 export default function RecipesStack() {
@@ -23,6 +24,8 @@ export default function RecipesStack() {
       <Stack.Screen name="BreakfastBowls" component={BreakfastBowls} />
       <Stack.Screen name="Vegan Life" component={VeganLife} />
       <Stack.Screen name="Snappy Meal" component={SnappyMeal} />
+      <Stack.Screen name="BakedGoods" component={BakedGood} />
+      <Stack.Screen name="PotatoBowl" component={PotatoBowl} />
     </Stack.Navigator>
   );
 }
