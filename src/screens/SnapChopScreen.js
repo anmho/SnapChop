@@ -33,7 +33,7 @@ export default function SnapChopScreen({ navigation }) {
       />
       <ScreenButton
         navigation={navigation}
-        screenName={"Recipes"}
+        screenName={"RecipesStack"}
         title={"Recipes"}
         imageSource={StirFry}
       />

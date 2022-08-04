@@ -7,7 +7,7 @@ import { Button } from "react-native";
 import RecipesScreen from "../screens/RecipesScreen";
 import SpotlightScreen from "../screens/SpotlightScreen";
 import CookingScreen from "../screens/CookingScreen";
-import SnackFacts from "../screens/SnackFacts";
+import SnackFactsStack from "../screens/SnackFacts";
 import RecipesStack from "./RecipesStack";
 import SnapChopScreen from "../screens/SnapChopScreen";
 import TutorialsStack from "../screens/TutorialsStack";
