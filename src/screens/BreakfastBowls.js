@@ -1,12 +1,10 @@
 import React from "react";
-import Chef from "../../assets/img/chef.png";
-import CookingIcon from "../../assets/img/img_05.png";
-import HeadICon from "../../assets/img/img_04.png";
-import Icon1 from "../../assets/img/img_01.png";
-import SnappyMealIMG from "../../assets/img/img_12.png";
-import CStudentIMG from "../../assets/img/img_08.png";
-import BFBowlIMG from "../../assets/img/img_10.png";
-import BreakfastIMG from "../../assets/img/img_09.png";
+import CocoIMG from "../../assets/img/img_50.png";
+import UnionIMG from "../../assets/img/Union.png";
+import SpicyIMG from "../../assets/img/img_51.png";
+import PotatoIMG from "../../assets/img/img_59.png";
+import BurritoIMG from "../../assets/img/img_52.png";
+import FruitIMG from "../../assets/img/img_54.png";
 
 import {
   Box,
@@ -21,207 +19,115 @@ import {
 } from "native-base";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function BreakfastBowls({ navigation }) {
+export default function BreakfastBowls({
+  navigation,
+  bowls = [
+    {
+      name: "Coconut Delight",
+      time: 5,
+      image: CocoIMG,
+      image_2: UnionIMG,
+      color: "#7ED6DC",
+    },
+    {
+      name: "Spicy Morning",
+      time: 10,
+      image: SpicyIMG,
+      image_2: UnionIMG,
+      color: "#7ED6DC",
+    },
+    {
+      name: "Potato Bowl",
+      time: 10,
+      image: PotatoIMG,
+      image_2: UnionIMG,
+      color: "#7ED6DC",
+    },
+    {
+      name: "Protein Bowl",
+      time: 10,
+      image: BurritoIMG,
+      image_2: UnionIMG,
+      color: "#7ED6DC",
+    },
+    {
+      name: "Fruit Love",
+      time: 10,
+      image: FruitIMG,
+      image_2: UnionIMG,
+      color: "#7ED6DC",
+    },
+  ],
+}) {
   return (
-    <View>
-      <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
-        Our Own Recipes
-      </Heading>
-      <Center mb="4">
-        <Box bg={"yellow.400"} borderRadius={15} width={"80%"} height={40}>
-          <Center>
-            <Image source={BFBowlIMG} alt={"img"} size="xl" />
+    <ScrollView>
+      <Center mt={3}>
+        <Heading fontFamily={"Graphik-Medium"}>BreakFast Bowls</Heading>
+      </Center>
+      {bowls.map((bowl) => (
+        <Bowls
+          name={bowl.name}
+          time={bowl.time}
+          color={bowl.color}
+          image={bowl.image}
+          image_2={bowl.image_2}
+          navigation={navigation}
+        />
+      ))}
+    </ScrollView>
+  );
+}
+function Bowls({
+  name,
+  time = 5,
+  image,
+  image_2,
+  color,
+  navigation,
+  screenName = "PotatoBowl",
+}) {
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+      <Box ml={5} mr={5} padding={2} pr={0} mt={5} bg={color} borderRadius={15}>
+        <VStack>
+          <HStack>
             <Text
-              fontSize="20"
               fontWeight={"bold"}
               fontFamily={"Graphik-Medium"}
+              color="white"
+              fontSize={"md"}
+              padding={1}
             >
-              Breakfast Bowls
+              {name}
             </Text>
-          </Center>
-        </Box>
-      </Center>
-
-      <ScrollView>
-        <VStack flex="1">
-          <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity onPress={() => navigation.navigate("PotatoBowl")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={12}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Potato Bowl
-                </Text>
-                <Center>
-                  <Image source={Chef} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("Vegan Life")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Spicy Morning
-                </Text>
-                <Center>
-                  <Image source={CookingIcon} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
+            <Image
+              position="absolute"
+              top={1}
+              right={10}
+              source={image}
+              alt="img"
+              size="sm"
+            />
+            <Image
+              position="absolute"
+              top={0.1}
+              right={1}
+              source={image_2}
+              alt="img"
+              size="sm"
+            />
           </HStack>
-          <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Snappy Meal")}
-            >
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Burrito Bowl
-                </Text>
-                <Center>
-                  <Image source={SnappyMealIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("BreakfastBowls")}
-            >
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Protein Bowl
-                </Text>
-                <Center>
-                  <Image source={BreakfastIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-          <HStack space={10} justifyContent="center">
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Fruit Love
-                </Text>
-                <Center>
-                  <Image source={CStudentIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Soup Bowl
-                </Text>
-                <Center>
-                  <Image source={Icon1} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-          <HStack space={10} justifyContent="center">
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  For Students
-                </Text>
-                <Image source={Icon1} alt={"img"} size="xl" />
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                >
-                  Dips
-                </Text>
-                <Image source={Icon1} alt={"img"} size="xl" />
-              </Box>
-            </TouchableOpacity>
-          </HStack>
+          <Text
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+            color="white"
+            fontSize={"md"}
+            padding={1}
+          >
+            {`${time} - ${time + 5} min`}
+          </Text>
         </VStack>
-      </ScrollView>
-    </View>
+      </Box>
+    </TouchableOpacity>
   );
 }

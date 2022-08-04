@@ -8,6 +8,7 @@ import VeganLife from "../screens/VeganLife";
 import SnappyMeal from "../screens/SnappyMeal";
 import BakedGood from "../screens/BakedGoods";
 import PotatoBowl from "../screens/PotatoBowl";
+import BowlsCategory from "../screens/BowlsCategory";
 const Stack = createStackNavigator();
 
 export default function RecipesStack() {

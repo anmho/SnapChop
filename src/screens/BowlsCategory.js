@@ -5,6 +5,7 @@ import HeadICon from "../../assets/img/img_04.png";
 import Icon1 from "../../assets/img/img_01.png";
 import SnappyMealIMG from "../../assets/img/img_12.png";
 import CStudentIMG from "../../assets/img/img_08.png";
+import BFBowlIMG from "../../assets/img/img_10.png";
 import BreakfastIMG from "../../assets/img/img_09.png";
 
 import {
@@ -20,35 +21,45 @@ import {
 } from "native-base";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function RecipesScreen({ navigation }) {
+export default function BreakfastBowls({ navigation }) {
   return (
     <View>
       <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
         Our Own Recipes
       </Heading>
       <Center mb="4">
-        <Image source={HeadICon} alt={"img"} size="xl" />
+        <Box bg={"yellow.400"} borderRadius={15} width={"80%"} height={40}>
+          <Center>
+            <Image source={BFBowlIMG} alt={"img"} size="xl" />
+            <Text
+              fontSize="20"
+              fontWeight={"bold"}
+              fontFamily={"Graphik-Medium"}
+            >
+              Breakfast Bowls
+            </Text>
+          </Center>
+        </Box>
       </Center>
+
       <ScrollView>
         <VStack flex="1">
           <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity onPress={() => navigation.navigate("BakedGoods")}>
+            <TouchableOpacity onPress={() => navigation.navigate("PotatoBowl")}>
               <Box
-                bg={"#7ED6DC"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={12}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  Baked Goods
+                  Potato Bowl
                 </Text>
                 <Center>
                   <Image source={Chef} alt={"img"} size="xl" />
@@ -57,21 +68,19 @@ export default function RecipesScreen({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("Vegan Life")}>
               <Box
-                bg={"#91E68D"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  Vegan Life
+                  Spicy Morning
                 </Text>
                 <Center>
                   <Image source={CookingIcon} alt={"img"} size="xl" />
@@ -84,21 +93,19 @@ export default function RecipesScreen({ navigation }) {
               onPress={() => navigation.navigate("Snappy Meal")}
             >
               <Box
-                bg={"#FE8CA3"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  Snappy Meals
+                  Burrito Bowl
                 </Text>
                 <Center>
                   <Image source={SnappyMealIMG} alt={"img"} size="xl" />
@@ -109,21 +116,19 @@ export default function RecipesScreen({ navigation }) {
               onPress={() => navigation.navigate("BreakfastBowls")}
             >
               <Box
-                bg={"#E7B6FE"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  Breakfast Bowls
+                  Protein Bowl
                 </Text>
                 <Center>
                   <Image source={BreakfastIMG} alt={"img"} size="xl" />
@@ -134,21 +139,19 @@ export default function RecipesScreen({ navigation }) {
           <HStack space={10} justifyContent="center">
             <TouchableOpacity onPress={console.log("click")}>
               <Box
-                bg={"#91E68D"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  For Students
+                  Fruit Love
                 </Text>
                 <Center>
                   <Image source={CStudentIMG} alt={"img"} size="xl" />
@@ -157,21 +160,19 @@ export default function RecipesScreen({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity onPress={console.log("click")}>
               <Box
-                bg={"#FE8CA3"}
+                bg={"white"}
                 width={"110%"}
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
-                  Salsa Dips
+                  Soup Bowl
                 </Text>
                 <Center>
                   <Image source={Icon1} alt={"img"} size="xl" />
@@ -187,14 +188,12 @@ export default function RecipesScreen({ navigation }) {
                 borderRadius={15}
                 height={"90%"}
                 mb={5}
-                shadow={2}
               >
                 <Text
                   fontSize="md"
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
                   For Students
                 </Text>
@@ -214,7 +213,6 @@ export default function RecipesScreen({ navigation }) {
                   fontWeight={"bold"}
                   fontFamily={"Graphik-Medium"}
                   ml={3}
-                  color={"#FFFFFF"}
                 >
                   Dips
                 </Text>
