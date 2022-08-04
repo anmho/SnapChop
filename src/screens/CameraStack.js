@@ -21,6 +21,7 @@ import StatBar from "../components/StatBar";
 import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
 import RecipeScreen from "../screens/RecipeScreen";
+import SnapChopStack from "../navigation/SnapChopStack";
 
 export function CameraScreen({ navigation, focused }) {
   let cameraRef = useRef();
@@ -143,9 +144,14 @@ export default function CameraStack() {
         component={ProfileScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Recipe"
         component={RecipeScreen}
+        options={{ headerShown: false }}
+      /> */}
+      <Stack.Screen
+        name="SnapChopStack"
+        component={SnapChopStack}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
