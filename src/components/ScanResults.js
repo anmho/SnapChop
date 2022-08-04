@@ -1,5 +1,9 @@
 import { useCallback, useMemo } from "react";
-import { Touchable, TouchableOpacity } from "react-native";
+import {
+  Touchable,
+  TouchableOpacity,
+  TouchableOpacityBase,
+} from "react-native";
 import {
   View,
   Text,
@@ -15,7 +19,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function ScanResults({ scanResultsRef }) {
+export default function ScanResults({ scanResultsRef, navigation }) {
   // ref
   // const scanResultsRef = useRef(null);
 
@@ -45,9 +49,8 @@ export default function ScanResults({ scanResultsRef }) {
           <View style={{ paddingBottom: 40 }}>
             <Heading scanResultsRef={scanResultsRef} />
             <View style={styles.divider} />
-            <Results />
+            <Results navigation={navigation} />
           </View>
-          {/* <View style={{ height: 20 }} /> */}
         </SafeAreaView>
       </BottomSheetModal>
     </BottomSheetModalProvider>
@@ -103,7 +106,7 @@ function Heading({ scanResultsRef }) {
   );
 }
 
-function Results() {
+function Results({ navigation }) {
   let data = [
     {
       title: "Lenses",
@@ -118,7 +121,7 @@ function Results() {
           description: "Lens 3",
         },
       ],
-      more: "Try Lenses (20)",
+      more: { name: "Try Lenses (20)", source: "" },
     },
     {
       title: "Snap Chop",
@@ -133,7 +136,11 @@ function Results() {
           description: "Fun Facts",
         },
       ],
-      more: "Snap Chop",
+      more: { name: "Snap Chop", source: "Recipe" },
+      // {
+      //   name: "Snap Chop",
+      //   source: "Recipe",
+      // },
     },
     {
       title: "dummy",
@@ -150,6 +157,7 @@ function Results() {
       return <View style={{ height: 120 }} key={item.id} />;
     return (
       <View style={styles.item} key={item.id}>
+        {/* Category */}
         <View
           style={{
             justifyContent: "center",
@@ -160,50 +168,17 @@ function Results() {
         >
           <Text style={{ color: "white", fontSize: 20 }}>{item.title}</Text>
         </View>
-
+        {/* Content Items */}
         <View style={styles.item.content}>
           {item.content.map((contentItem) => (
-            <View
-              style={{
-                padding: 2,
-                flexDirection: "row",
-                alignItems: "center",
-                marginTop: 5,
-                marginBottom: 5,
-              }}
-            >
-              <View
-                style={{
-                  borderRadius: "100%",
-                  backgroundColor: "#D9D9D9",
-                  width: 50,
-                  aspectRatio: 1 / 1,
-                  marginRight: 10,
-                }}
-              />
-              <Text style={{ color: "white" }}>{contentItem.description}</Text>
-            </View>
+            <CategoryItem item={contentItem} />
           ))}
         </View>
-        <TouchableOpacity>
-          <View
-            style={{
-              fontSize: 20,
-              backgroundColor: "#2A2A2A",
-              borderRadius: 10,
-              marginTop: 20,
-              padding: 10,
-              marginLeft: 15,
-              marginRight: 15,
-              marginBottom: 10,
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "white" }}>{item.more}</Text>
-          </View>
-        </TouchableOpacity>
+        <MoreButton
+          name={item.more.name}
+          source={item.more.source}
+          navigation={navigation}
+        />
       </View>
     );
   };
@@ -215,6 +190,55 @@ function Results() {
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
     />
+  );
+}
+
+function CategoryItem({ item }) {
+  return (
+    <View
+      style={{
+        padding: 2,
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 5,
+        marginBottom: 5,
+      }}
+    >
+      <View
+        style={{
+          borderRadius: "100%",
+          backgroundColor: "#D9D9D9",
+          width: 50,
+          aspectRatio: 1 / 1,
+          marginRight: 10,
+        }}
+      />
+      <Text style={{ color: "white" }}>{item.description}</Text>
+    </View>
+  );
+}
+
+function MoreButton({ name, source, navigation }) {
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(source)}>
+      <View
+        style={{
+          fontSize: 20,
+          backgroundColor: "#2A2A2A",
+          borderRadius: 10,
+          marginTop: 20,
+          padding: 10,
+          marginLeft: 15,
+          marginRight: 15,
+          marginBottom: 10,
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ color: "white" }}>{name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 

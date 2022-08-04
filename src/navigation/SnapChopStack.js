@@ -10,26 +10,32 @@ import CookingScreen from "../screens/CookingScreen";
 import SnackFacts from "../screens/SnackFacts";
 import RecipesStack from "./RecipesStack";
 import SnapChopScreen from "../screens/SnapChopScreen";
+import TutorialsStack from "../screens/TutorialsStack";
 const Stack = createStackNavigator();
 
-export default function MiniStack({ navigation }) {
+export default function SnapChopStack({ navigation }) {
   let screenOptions = {
     tabBarShowLabel: false,
   };
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="SnapChopScreen">
       <Stack.Screen
-        name="Snap Chop"
+        name="SnapChopScreen"
         component={SnapChopScreen}
-        options={screenOptions}
+        options={{ title: "Snap Chop", ...screenOptions }}
       />
-      <Stack.Screen name="Cooking" component={CookingScreen} />
+      <Stack.Screen name="CookingStack" component={CookingScreen} />
       <Stack.Screen
         name="Recipes"
         component={RecipesStack}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Snack" component={SnackFacts} />
+      <Stack.Screen
+        name="TutorialsStack"
+        component={TutorialsStack}
+        options={{ headerShown: false }}
+      />
+      {/* <Stack.Screen name="Snack" component={SnackFacts} /> */}
     </Stack.Navigator>
   );
 }

@@ -3,8 +3,10 @@ import { View, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { Box, Text } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 import { ImageBackground } from "react-native";
+import StatBar from "../components/StatBar";
 
-export default function RecipesScreen({
+export default function RecipeScreen({
+  navigation,
   recipe = {
     servings: 5,
     calories: 500,
@@ -39,9 +41,10 @@ export default function RecipesScreen({
 }) {
   return (
     <>
+      {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
       {/* <SafeAreaView> */}
       <ScrollView contentContainerStyle={{ padding: 20 }}>
-        <Box alignItems={"center"} marginTop={60}>
+        <Box alignItems={"center"} marginTop={70}>
           {/* Recipe Image */}
           <View
             style={{
@@ -68,13 +71,19 @@ export default function RecipesScreen({
         </Box>
         {/* Ingredients */}
         <ScrollView horizontal={true}>
-          {recipe.ingredients.map(({name, image, amount}) => (
-            <Ingredient
-              name={name}
-              image={image}
-              amount={amount}
-            />
+          {recipe.ingredients.map(({ name, image, amount }) => (
+            <Ingredient name={name} image={image} amount={amount} />
           ))}
+        </ScrollView>
+        {/* How To Content*/}
+        <Box px={2} pt={2}>
+          <Text fontSize={"md"} fontWeight={"bold"}>
+            {"HOW TO"}
+          </Text>
+        </Box>
+        <ScrollView horizontal={true}>
+          <Content />
+          <Content />
         </ScrollView>
         {/* Find Ingredients/Map Preview */}
         <MapPreview />
@@ -92,6 +101,28 @@ export default function RecipesScreen({
         </Box>
       </ScrollView>
     </>
+  );
+}
+
+function Content({ videoUrl }) {
+  return (
+    <Box
+      display="flex"
+      justifyContent={"center"}
+      alignItems={"center"}
+      margin={1}
+    >
+      <Box
+        backgroundColor={"gray.500"}
+        borderRadius={10}
+        width={200}
+        aspectRatio={2 / 1}
+        shadow={2}
+      ></Box>
+      <Box marginTop={2}>
+        {/* <Text fontSize={"md"}>{`${amount} ${name}`}</Text> */}
+      </Box>
+    </Box>
   );
 }
 
@@ -124,7 +155,7 @@ function Ingredient({ image, name = "aspargus", amount = 1 }) {
       <Box
         backgroundColor={"gray.500"}
         borderRadius={10}
-        width={120}
+        width={100}
         aspectRatio={1 / 1}
         shadow={2}
       ></Box>
