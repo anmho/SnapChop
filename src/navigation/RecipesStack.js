@@ -9,7 +9,7 @@ import SnappyMeal from "../screens/SnappyMeal";
 
 const Stack = createStackNavigator();
 
-export default function RecipesStack() {
+export default function RecipesStack({ navigation }) {
   let screenOptions = {
     tabBarShowLabel: false,
   };
