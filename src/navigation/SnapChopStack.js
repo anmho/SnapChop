@@ -14,12 +14,19 @@ import SnapChopScreen from "../screens/SnapChopScreen";
 import TutorialsStack from "../screens/TutorialsStack";
 const Stack = createStackNavigator();
 
-export default function SnapChopStack({ navigation }) {
+export default function SnapChopStack({ navigation, route }) {
   let screenOptions = {
     tabBarShowLabel: false,
   };
+  console.log(route.params);
   return (
-    <Stack.Navigator initialRouteName="SnapChopScreen">
+    <Stack.Navigator
+      initialRouteName={
+        route.params && route.params.screen
+          ? route.params.screen
+          : "SnapChopScreen"
+      }
+    >
       <Stack.Screen
         name="SnapChopScreen"
         component={SnapChopScreen}

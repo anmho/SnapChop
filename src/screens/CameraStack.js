@@ -23,6 +23,8 @@ import ProfileScreen from "../screens/ProfileScreen";
 import RecipesScreen from "../screens/RecipesScreen";
 import SnapChopScreen from "./SnapChopScreen";
 import RecipeScreen from "../screens/RecipeScreen";
+import TutorialsScreen from "../screens/TutorialsScreen";
+import SnackFactsScreen from "../screens/SnackFactsScreen";
 import SnapChopStack from "../navigation/SnapChopStack";
 
 export function CameraScreen({ navigation, focused }) {
@@ -146,16 +148,31 @@ export default function CameraStack() {
         component={ProfileScreen}
         options={{ headerShown: false }}
       />
-      {/* <Stack.Screen
-        name="Recipe"
-        component={SnapChopStack}
-        options={{ headerShown: false }}
-      /> */}
       <Stack.Screen
         name="SnapChopStack"
         component={SnapChopStack}
         options={{ headerShown: false }}
       />
+      {/* <Stack.Screen
+        name="RecipesScreen"
+        component={RecipesScreen}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="TutorialsScreen"
+        component={TutorialsScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="SnackFactsScreen"
+        component={SnackFactsScreen}
+        options={{ headerShown: true }}
+      />
+      <Stack.Screen
+        name="SnackFactScreen"
+        component={SnackFactsScreen}
+        options={{ headerShown: true }}
+      /> */}
     </Stack.Navigator>
   );
 }
