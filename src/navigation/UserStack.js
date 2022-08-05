@@ -53,8 +53,8 @@ export default function UserStack() {
         activeColor="#f0edf6"
         inactiveColor="#3e2465"
         barStyle={{ backgroundColor: "#694fad" }}
-        initialRouteName="SnapChopStack"
-        // initialRouteName="CameraStack"
+        // initialRouteName="SnapChopStack"
+        initialRouteName="CameraStack"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, size }) => {
             let iconName;
@@ -98,7 +98,7 @@ export default function UserStack() {
           options={{ ...screenOptions, headerShown: false }}
         /> */}
 
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Test"
           component={TutorialsStack}
           options={{ ...screenOptions, headerShown: false }}
@@ -108,7 +108,7 @@ export default function UserStack() {
           name="SnapChopStack"
           component={SnapChopStack}
           options={{ ...screenOptions, headerShown: false }}
-        />
+        /> */}
 
         <Tab.Screen
           name="MapStack"
