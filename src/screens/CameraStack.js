@@ -48,10 +48,10 @@ export function CameraScreen({ navigation, focused }) {
   }, []);
 
   if (hasCameraPermission === undefined) {
-    return <Text>Requesting permissions...</Text>;
+    return <Text fontFamily={"Graphik-Medium"}>Requesting permissions...</Text>;
   } else if (!hasCameraPermission) {
     return (
-      <Text>
+      <Text fontFamily={"Graphik-Medium"}>
         Permission for camera not granted. Please change this in settings.
       </Text>
     );

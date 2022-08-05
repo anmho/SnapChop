@@ -30,5 +30,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#2b83b3",
     fontSize: 28,
+    fontFamily: "Graphik-Medium",
   },
 });

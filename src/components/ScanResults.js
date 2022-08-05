@@ -83,7 +83,9 @@ function Heading({ scanResultsRef }) {
 
         <View style={{ flex: 1 }}>
           <Text style={styles.mainHeading}>Scan Results</Text>
-          <Text style={{ color: "white" }}>Content based on your scan</Text>
+          <Text style={{ color: "white", fontFamily: "Graphik-Medium" }}>
+            Content based on your scan
+          </Text>
         </View>
       </View>
 
@@ -162,7 +164,15 @@ function Results({ navigation }) {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white", fontSize: 20 }}>{item.title}</Text>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 20,
+              fontFamily: "Graphik-Medium",
+            }}
+          >
+            {item.title}
+          </Text>
         </View>
         {/* Content Items */}
         <View style={styles.item.content}>
@@ -209,7 +219,9 @@ function CategoryItem({ item }) {
           marginRight: 10,
         }}
       />
-      <Text style={{ color: "white" }}>{item.description}</Text>
+      <Text style={{ color: "white", fontFamily: "Graphik-Medium" }}>
+        {item.description}
+      </Text>
     </View>
   );
 }
@@ -232,7 +244,9 @@ function MoreButton({ name, source, navigation }) {
           alignItems: "center",
         }}
       >
-        <Text style={{ color: "white" }}>{name}</Text>
+        <Text style={{ color: "white", fontFamily: "Graphik-Medium" }}>
+          {name}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -244,7 +258,7 @@ const styles = StyleSheet.create({
     container: {},
     scanPhoto: {},
   },
-  mainHeading: { fontSize: 20, color: "white" },
+  mainHeading: { fontSize: 20, color: "white", fontFamily: "Graphik-Medium" },
 
   modal: { backgroundColor: "#121212" },
   item: {
@@ -254,6 +268,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
     marginBottom: 5,
+    fontFamily: "Graphik-Medium",
   },
   container: {
     padding: 20,

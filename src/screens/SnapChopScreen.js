@@ -19,6 +19,7 @@ import RecipesImg from "../../assets/img/img_05.png";
 import { ImageBackground } from "react-native";
 import Chopping from "../../assets/img/chopping.png";
 import StirFry from "../../assets/img/StirFry.png";
+import FactsIMG from "../../assets/img/img_001.png";
 
 export default function SnapChopScreen({ navigation }) {
   return (
@@ -41,6 +42,7 @@ export default function SnapChopScreen({ navigation }) {
         navigation={navigation}
         screenName={"SnackFactsStack"}
         title={"Snack Facts"}
+        imageSource={FactsIMG}
       />
     </ScrollView>
   );
@@ -49,7 +51,11 @@ export default function SnapChopScreen({ navigation }) {
 function ScreenButton({ navigation, screenName, title, imageSource }) {
   return (
     <>
-      <Text fontSize={"2xl"} fontWeight="semibold">
+      <Text
+        fontSize={"2xl"}
+        fontWeight="semibold"
+        fontFamily={"Graphik-Medium"}
+      >
         {title}
       </Text>
       <TouchableOpacity onPress={() => navigation.navigate(screenName)}>

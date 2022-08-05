@@ -2,6 +2,7 @@ import { View } from "react-native";
 import { Box, Image } from "native-base";
 import SnackFacts from "../../assets/img/SnackFacts.png";
 import { TouchableOpacity, ScrollView } from "react-native";
+import StatBar from "../components/StatBar";
 
 export default function SnackFactsScreen({ navigation }) {
   return (

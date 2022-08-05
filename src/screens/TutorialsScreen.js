@@ -24,7 +24,7 @@ export default function TutorialsScreen({ navigation }) {
           items={[{ image: Video1 }, { image: Video2 }, { image: Video3 }]}
         />
         <Section
-          title={"Master 5 Basic Cooking Skill"}
+          title={"Cook Like A Chef"}
           items={[{ image: Video3 }, { image: Video1 }, { image: Video2 }]}
         />
         <Section

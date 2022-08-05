@@ -55,7 +55,7 @@ export default function RecipeScreen({
       {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
       {/* <SafeAreaView> */}
       <ScrollView contentContainerStyle={{ padding: 20 }}>
-        <Box alignItems={"center"} marginTop={70}>
+        <Box alignItems={"center"} marginTop={5}>
           {/* Recipe Image */}
           <Image source={PotatoBowlIMG} alt={"img"} />
           {/* <View
@@ -77,7 +77,11 @@ export default function RecipeScreen({
         </View>
         {/* Recipe Name */}
         <Box px={2}>
-          <Text fontSize={"2xl"} fontWeight={"bold"}>
+          <Text
+            fontSize={"2xl"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
             {recipe.name.toUpperCase()}
           </Text>
         </Box>
@@ -94,7 +98,11 @@ export default function RecipeScreen({
         </ScrollView>
         {/* How To Content*/}
         <Box px={2} pt={2}>
-          <Text fontSize={"md"} fontWeight={"bold"}>
+          <Text
+            fontSize={"md"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
             {"HOW TO"}
           </Text>
         </Box>

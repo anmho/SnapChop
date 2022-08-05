@@ -89,7 +89,13 @@ export default function ProfileScreen({ navigation }) {
 
             {/* Minis Subheading */}
             <Box flexDirection={"row"} marginLeft={5} marginBottom={2}>
-              <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: "bold",
+                  fontFamily: "Graphik-Medium",
+                }}
+              >
                 Pinned Minis
               </Text>
             </Box>
@@ -102,7 +108,9 @@ export default function ProfileScreen({ navigation }) {
                 borderRadius={10}
                 marginBottom={5}
               >
-                <Text style={{ color: "black" }}>Hello</Text>
+                <Text style={{ color: "black", fontFamily: "Graphik-Medium" }}>
+                  Hello
+                </Text>
               </Box>
             </TouchableOpacity>
 

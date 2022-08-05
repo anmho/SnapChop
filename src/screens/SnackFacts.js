@@ -29,19 +29,16 @@ export default function SnackFacts() {
         <Text
           bold
           fontFamily={"Graphik-Medium"}
-          fontSize="xl"
+          fontSize="2xl"
           fontStyle={"upperCase"}
+          mt={5}
         >
           45 calories
         </Text>
-        <Box>
+        <Box mt={10}>
           <HStack justifyContent={"center"} alignItems="center">
             <Image source={Icon} alt="image" size={"5"} mr={2} />
-            <Text
-              fontFamily={"Graphik-Light"}
-              fontSize={18}
-              fontStyle={"upperCase"}
-            >
+            <Text fontFamily={"Graphik-Light"} fontSize={18}>
               Red onions are more effective natural blood thinners than white
               onions
             </Text>
@@ -51,11 +48,7 @@ export default function SnackFacts() {
         <Box mt={5}>
           <HStack justifyContent={"center"} alignItems="center">
             <Image source={Icon} alt="image" size={"5"} mr={2} />
-            <Text
-              fontFamily={"Graphik-Light"}
-              fontSize={18}
-              fontStyle={"upperCase"}
-            >
+            <Text fontFamily={"Graphik-Light"} fontSize={18}>
               Red onions contain at least 25 different anthocyanins.
             </Text>
           </HStack>

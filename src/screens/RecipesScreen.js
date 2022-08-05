@@ -26,16 +26,16 @@ export default function RecipesScreen({ navigation }) {
       <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
         Our Own Recipes
       </Heading>
-      <Center mb="4">
+      {/* <Center mb="4">
         <Image source={HeadICon} alt={"img"} size="xl" />
-      </Center>
+      </Center> */}
       <ScrollView>
-        <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
+        {/* <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
           Our Own Recipes
         </Heading>
         <Center mb="4">
           <Image source={Chef} alt={"img"} size="xl" />
-        </Center>
+        </Center> */}
         <VStack flex="1">
           <HStack space={10} justifyContent="center" flex="1" mb={2}>
             <TouchableOpacity onPress={() => navigation.navigate("BakedGoods")}>
