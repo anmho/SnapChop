@@ -30,6 +30,12 @@ export default function RecipesScreen({ navigation }) {
         <Image source={HeadICon} alt={"img"} size="xl" />
       </Center>
       <ScrollView>
+        <Heading mb="2" mt="1" ml="7" style={{ fontFamily: "Graphik-Medium" }}>
+          Our Own Recipes
+        </Heading>
+        <Center mb="4">
+          <Image source={Chef} alt={"img"} size="xl" />
+        </Center>
         <VStack flex="1">
           <HStack space={10} justifyContent="center" flex="1" mb={2}>
             <TouchableOpacity onPress={() => navigation.navigate("BakedGoods")}>
@@ -106,7 +112,7 @@ export default function RecipesScreen({ navigation }) {
               </Box>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate("BreakfastBowls")}
+              onPress={() => navigation.navigate("RecipeScreen")}
             >
               <Box
                 bg={"#E7B6FE"}
@@ -225,5 +231,25 @@ export default function RecipesScreen({ navigation }) {
         </VStack>
       </ScrollView>
     </View>
+  );
+}
+
+function CategoryButton({ navigation, imageSource, title, screenName }) {
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+      <Box bg={"white"} width={"110%"} borderRadius={12} height={"90%"} mb={5}>
+        <Text
+          fontSize="md"
+          fontWeight={"bold"}
+          fontFamily={"Graphik-Medium"}
+          ml={3}
+        >
+          {title}
+        </Text>
+        <Center>
+          <Image source={imageSource} alt={"img"} size="xl" />
+        </Center>
+      </Box>
+    </TouchableOpacity>
   );
 }

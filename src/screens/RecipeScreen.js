@@ -9,7 +9,7 @@ import Avocado from "../../assets/img/img_32.png";
 import BellPepper from "../../assets/img/img_33.png";
 import MapIng from "../../assets/img/img_29.png";
 import PotatoBowlIMG from "../../assets/img/img_20.png";
-export default function PotatoBowl({
+export default function RecipeScreen({
   recipe = {
     servings: 5,
     calories: 500,
@@ -52,10 +52,10 @@ export default function PotatoBowl({
 }) {
   return (
     <>
+      {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
       {/* <SafeAreaView> */}
       <ScrollView contentContainerStyle={{ padding: 20 }}>
-        {/* <Box alignItems={"center"} marginTop={60}> */}
-        <Box alignItems={"center"} marginTop={5}>
+        <Box alignItems={"center"} marginTop={70}>
           {/* Recipe Image */}
           <Image source={PotatoBowlIMG} alt={"img"} />
           {/* <View
@@ -92,6 +92,16 @@ export default function PotatoBowl({
             />
           ))}
         </ScrollView>
+        {/* How To Content*/}
+        <Box px={2} pt={2}>
+          <Text fontSize={"md"} fontWeight={"bold"}>
+            {"HOW TO"}
+          </Text>
+        </Box>
+        <ScrollView horizontal={true}>
+          <Content />
+          <Content />
+        </ScrollView>
         {/* Find Ingredients/Map Preview */}
         <MapPreview />
         {/* Ingredients */}
@@ -117,6 +127,28 @@ export default function PotatoBowl({
         </Box>
       </ScrollView>
     </>
+  );
+}
+
+function Content({ videoUrl }) {
+  return (
+    <Box
+      display="flex"
+      justifyContent={"center"}
+      alignItems={"center"}
+      margin={1}
+    >
+      <Box
+        backgroundColor={"gray.500"}
+        borderRadius={10}
+        width={200}
+        aspectRatio={2 / 1}
+        shadow={2}
+      ></Box>
+      <Box marginTop={2}>
+        {/* <Text fontSize={"md"}>{`${amount} ${name}`}</Text> */}
+      </Box>
+    </Box>
   );
 }
 

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Image,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { Box, Card, AspectRatio } from "native-base";
@@ -58,7 +59,7 @@ export default function ProfileScreen({ navigation }) {
               >
                 <Text>1092</Text>
               </Box>
-              <Box                
+              <Box
                 style={{ width: 50, height: 20 }}
                 bg={"white"}
                 height={50}

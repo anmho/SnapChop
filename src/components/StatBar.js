@@ -11,7 +11,7 @@ export default function StatBar({ navigation, screen = "camera" }) {
 
       {console.log(screen)}
 
-      {screen === "Profile" ? (
+      {new Set(["Profile", "Recipe", "Tutorials"]).has(screen) ? (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.iconContainer}>
             <Ionicons name="chevron-back-outline" size={15} color="#ffffff" />

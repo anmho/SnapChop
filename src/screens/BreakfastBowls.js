@@ -60,7 +60,7 @@ export default function BreakfastBowls({
   ],
 }) {
   return (
-    <ScrollView>
+    <ScrollView mt={10}>
       <Center mt={3}>
         <Heading fontFamily={"Graphik-Medium"}>BreakFast Bowls</Heading>
       </Center>
@@ -131,3 +131,14 @@ function Bowls({
     </TouchableOpacity>
   );
 }
+
+/* 
+Snap Chop Stack
+CategoryScreen
+RecipeScreen
+
+
+
+
+
+*/
