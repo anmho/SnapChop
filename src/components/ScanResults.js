@@ -136,11 +136,7 @@ function Results({ navigation }) {
           description: "Fun Facts",
         },
       ],
-      more: { name: "Snap Chop", source: "Recipe" },
-      // {
-      //   name: "Snap Chop",
-      //   source: "Recipe",
-      // },
+      more: { name: "Snap Chop", source: "SnapChopStack" },
     },
     {
       title: "dummy",

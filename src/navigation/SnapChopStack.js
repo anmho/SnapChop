@@ -7,7 +7,7 @@ import { Button } from "react-native";
 import RecipesScreen from "../screens/RecipesScreen";
 import SpotlightScreen from "../screens/SpotlightScreen";
 import CookingScreen from "../screens/CookingScreen";
-import SnackFactsStack from "../screens/SnackFacts";
+import SnackFactsStack from "../screens/SnackFactsStack";
 import RecipesStack from "./RecipesStack";
 import SnackFacts from "../screens/SnackFacts";
 import SnapChopScreen from "../screens/SnapChopScreen";
@@ -33,12 +33,14 @@ export default function SnapChopStack({ navigation }) {
       <Stack.Screen
         name="TutorialsStack"
         component={TutorialsStack}
+        title={"Cookin' with Chefs"}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="SnackFacts"
+        name="SnackFactsStack"
+        component={SnackFactsStack}
         title={"Snack Facts"}
-        component={SnackFacts}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

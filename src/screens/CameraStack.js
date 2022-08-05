@@ -22,6 +22,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
 import RecipesScreen from "../screens/RecipesScreen";
 import SnapChopScreen from "./SnapChopScreen";
+import RecipeScreen from "../screens/RecipeScreen";
 import SnapChopStack from "../navigation/SnapChopStack";
 
 export function CameraScreen({ navigation, focused }) {
@@ -145,8 +146,13 @@ export default function CameraStack() {
         component={ProfileScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Recipe"
+        component={SnapChopStack}
+        options={{ headerShown: false }}
+      /> */}
+      <Stack.Screen
+        name="SnapChopStack"
         component={SnapChopStack}
         options={{ headerShown: false }}
       />

@@ -39,7 +39,7 @@ export default function SnapChopScreen({ navigation }) {
       />
       <ScreenButton
         navigation={navigation}
-        screenName={"SnackFacts"}
+        screenName={"SnackFactsStack"}
         title={"Snack Facts"}
       />
     </ScrollView>
@@ -63,6 +63,7 @@ function ScreenButton({ navigation, screenName, title, imageSource }) {
               borderRadius={12}
               shadow={2}
               source={imageSource}
+              alt="img"
             />
           </Box>
         ) : (
@@ -75,18 +76,6 @@ function ScreenButton({ navigation, screenName, title, imageSource }) {
             shadow={2}
           />
         )}
-
-        {/* <ImageBackground
-          source={imageSource}
-          resizeMode="cover"
-          // borderRadius={12}
-          style={{
-            height: 160,
-            width: "100%",
-            borderRadius: 12,
-          }}
-        ></ImageBackground> */}
-        {/* </Box> */}
       </TouchableOpacity>
     </>
   );
