@@ -20,6 +20,8 @@ import ScanResults from "../components/ScanResults";
 import StatBar from "../components/StatBar";
 import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
+import RecipesScreen from "../screens/RecipesScreen";
+import SnapChopScreen from "./SnapChopScreen";
 import RecipeScreen from "../screens/RecipeScreen";
 import SnapChopStack from "../navigation/SnapChopStack";
 
@@ -146,7 +148,7 @@ export default function CameraStack() {
       />
       {/* <Stack.Screen
         name="Recipe"
-        component={RecipeScreen}
+        component={SnapChopStack}
         options={{ headerShown: false }}
       /> */}
       <Stack.Screen

@@ -6,7 +6,7 @@ import { TouchableOpacity, ScrollView } from "react-native";
 export default function SnackFactsScreen({ navigation }) {
   return (
     <Box justifyContent={"center"} alignItems={"center"}>
-      <Image source={SnackFacts} width={"100%"} height={"100%"} />
+      <Image source={SnackFacts} width={"100%"} height={"100%"} alt="img" />
       <TouchableOpacity
         style={{
           position: "absolute",
@@ -15,7 +15,7 @@ export default function SnackFactsScreen({ navigation }) {
           top: 0,
           left: 0,
         }}
-        onPress={() => navigation.navigate("SnackFactScreen")}
+        onPress={() => navigation.navigate("SnackFacts")}
       ></TouchableOpacity>
     </Box>
   );

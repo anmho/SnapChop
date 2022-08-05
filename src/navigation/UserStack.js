@@ -16,10 +16,11 @@ import ProfileStack from "../screens/ProfileScreen";
 import Test from "../screens/Test";
 // Stacks
 import ChatStack from "./ChatStack";
-import RecipeScreen from "../screens/RecipeScreen";
+import RecipesScreen from "../screens/RecipesScreen";
 import SnapChopStack from "./SnapChopStack";
 import TutorialsStack from "../screens/TutorialsStack";
-
+import RecipeScreen from "../screens/RecipeScreen";
+import BreakfastBowls from "../screens/BreakfastBowls";
 const Tab = createBottomTabNavigator();
 
 export default function UserStack() {
@@ -100,11 +101,11 @@ export default function UserStack() {
 
         {/* <Tab.Screen
           name="Test"
-          component={TutorialsStack}
+          component={RecipeScreen}
           options={{ ...screenOptions, headerShown: false }}
-        />
+        /> */}
 
-        <Tab.Screen
+        {/* <Tab.Screen
           name="SnapChopStack"
           component={SnapChopStack}
           options={{ ...screenOptions, headerShown: false }}

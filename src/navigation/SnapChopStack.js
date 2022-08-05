@@ -9,6 +9,7 @@ import SpotlightScreen from "../screens/SpotlightScreen";
 import CookingScreen from "../screens/CookingScreen";
 import SnackFactsStack from "../screens/SnackFactsStack";
 import RecipesStack from "./RecipesStack";
+import SnackFacts from "../screens/SnackFacts";
 import SnapChopScreen from "../screens/SnapChopScreen";
 import TutorialsStack from "../screens/TutorialsStack";
 const Stack = createStackNavigator();
@@ -24,9 +25,8 @@ export default function SnapChopStack({ navigation }) {
         component={SnapChopScreen}
         options={{ title: "Snap Chop", ...screenOptions }}
       />
-      {/* <Stack.Screen name="CookingStack" component={CookingScreen} /> */}
       <Stack.Screen
-        name="Recipes"
+        name="RecipesStack"
         component={RecipesStack}
         options={{ headerShown: false }}
       />
