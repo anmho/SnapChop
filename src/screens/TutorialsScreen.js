@@ -3,9 +3,19 @@ import { Text, Box } from "native-base";
 import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
 import StatBar from "../components/StatBar";
 import TutorialScreen from "./TutorialScreen";
-import Video1 from "../../assets/img/Video1.png";
-import Video2 from "../../assets/img/Video2.png";
-import Video3 from "../../assets/img/Video3.png";
+// import Video1 from "../../assets/img/Video1.png";
+// import Video2 from "../../assets/img/Video2.png";
+// import Video3 from "../../assets/img/Video3.png";
+import LeeCutting from "../../assets/img/LeeCutting.png";
+import OnionChopping from "../../assets/img/OnionChopping.png";
+import Salt from "../../assets/img/Salt.png";
+import ChoppingPepper from "../../assets/img/ChoppingPepper.png";
+import ChickpeaSweetPotato from "../../assets/img/ChickpeaSweetPotato.png";
+import Soup from "../../assets/img/Soup.png";
+import CollardChili from "../../assets/img/CollardChili.png";
+import DustinSaute from "../../assets/img/DustinSaute.png";
+import Veggies from "../../assets/img/Veggies.png";
+
 import { Image } from "native-base";
 
 export default function TutorialsScreen({ navigation }) {
@@ -21,15 +31,27 @@ export default function TutorialsScreen({ navigation }) {
 
         <Section
           title={"Master 5 Basic Cooking Skill"}
-          items={[{ image: Video1 }, { image: Video2 }, { image: Video3 }]}
+          items={[
+            { image: LeeCutting },
+            { image: OnionChopping },
+            { image: Salt },
+          ]}
         />
         <Section
           title={"Master 5 Basic Cooking Skill"}
-          items={[{ image: Video3 }, { image: Video1 }, { image: Video2 }]}
+          items={[
+            { image: ChoppingPepper },
+            { image: ChickpeaSweetPotato },
+            { image: Soup },
+          ]}
         />
         <Section
           title={"Meal Prep"}
-          items={[{ image: Video2 }, { image: Video3 }, { image: Video1 }]}
+          items={[
+            { image: CollardChili },
+            { image: DustinSaute },
+            { image: Veggies },
+          ]}
         />
       </ScrollView>
     </>

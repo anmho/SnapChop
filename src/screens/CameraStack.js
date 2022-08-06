@@ -20,11 +20,11 @@ import ScanResults from "../components/ScanResults";
 import StatBar from "../components/StatBar";
 import { createStackNavigator } from "@react-navigation/stack";
 import ProfileScreen from "../screens/ProfileScreen";
-import RecipesScreen from "../screens/RecipesScreen";
+import RecipesHomeScreen from "../screens/RecipesHomeScreen";
 import SnapChopScreen from "./SnapChopScreen";
 import RecipeScreen from "../screens/RecipeScreen";
 import TutorialsScreen from "../screens/TutorialsScreen";
-import SnackFactsScreen from "../screens/SnackFactsScreen";
+import SnackFactsScreen from "./SnackFactsHomeScreen";
 import SnapChopStack from "../navigation/SnapChopStack";
 
 export function CameraScreen({ navigation, focused }) {

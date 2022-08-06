@@ -21,6 +21,8 @@ import SnapChopIcon from "../../assets/img/SnapChopIcon.png";
 import RecipesButtonScan from "../../assets/img/RecipesButtonScan.png";
 import SnackFactsButtonScan from "../../assets/img/SnackFactsButtonScan.png";
 import TutorialsButtonScan from "../../assets/img/TutorialsButtonScan.png";
+import Lens1Image from "../../assets/img/Lens1.png";
+import Lens2Image from "../../assets/img/Lens2.png";
 
 import { Image } from "native-base";
 
@@ -69,12 +71,21 @@ function Heading({ scanResultsRef }) {
         flexWrap: "wrap",
       }}
     >
-      <View style={{ flex: 1, flexDirection: "row" }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {/* Image Placeholder */}
         <View
           style={{
             backgroundColor: "#D9D9D9",
-            width: 50,
+            // width: 40,
             height: 50,
+            aspectRatio: 4 / 5,
             borderRadius: 10,
             marginRight: 10,
           }}
@@ -113,14 +124,14 @@ let data = [
       "Empowering ALL communities with accessible, healthy foods in a fun way",
     content: [
       {
-        source: "RecipesStack",
-        icon: RecipesButtonScan,
-        description: "Our Own Recipes",
-      },
-      {
         source: "TutorialsStack",
         icon: TutorialsButtonScan,
         description: "Cookin' with Chefs",
+      },
+      {
+        source: "RecipesStack",
+        icon: RecipesButtonScan,
+        description: "Our Own Recipes",
       },
       {
         source: "SnackFactsStack",
@@ -131,17 +142,21 @@ let data = [
     more: { name: "Snap Chop", source: "SnapChopStack" },
   },
   {
-    title: "Lenses",
+    title: "Food Lenses",
     content: [
       {
-        description: "Lens 1",
+        icon: Lens1Image,
+        description: "Funny Onions",
+        // source: "",
       },
       {
-        description: "Lens 2",
+        icon: Lens2Image,
+        description: "Big Mouth",
+        // source: "",
       },
-      {
-        description: "Lens 3",
-      },
+      // {
+      //   description: "Lens 3",
+      // },
     ],
     more: { name: "Try Lenses (20)", source: "" },
   },
@@ -171,7 +186,7 @@ function Results({ navigation }) {
             alignItems: "center",
           }}
         >
-          {item.icon ? (
+          {item.icon && (
             <View
               style={{
                 display: "flex",
@@ -192,7 +207,7 @@ function Results({ navigation }) {
                 <Image source={item.icon} size={7} />
               </View>
             </View>
-          ) : null}
+          )}
           <View>
             <Text
               style={{
@@ -207,27 +222,34 @@ function Results({ navigation }) {
           </View>
           {item.icon ? <View style={{ width: "50%" }}></View> : null}
         </View>
-        <View
-          style={{
-            paddingHorizontal: 20,
-            paddingVertical: 10,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "#9F9F9F" }}>{item.description}</Text>
-        </View>
+        {/* Description */}
+        {item.description && (
+          <View
+            style={{
+              paddingHorizontal: 20,
+              paddingVertical: 10,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#9F9F9F", fontWeight: "600" }}>
+              {item.description}
+            </Text>
+          </View>
+        )}
         {/* Content Items */}
         <View style={styles.item.content}>
           {item.content.map((contentItem) => (
             <CategoryItem item={contentItem} navigation={navigation} />
           ))}
         </View>
-        <MoreButton
-          name={item.more.name}
-          source={item.more.source}
-          navigation={navigation}
-        />
+        {item.more && (
+          <MoreButton
+            name={item.more.name}
+            source={item.more.source}
+            navigation={navigation}
+          />
+        )}
       </View>
     );
   };
@@ -236,6 +258,7 @@ function Results({ navigation }) {
     <FlatList
       style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 100 }}
       data={data}
+      // renderItem={(item, navigation) => <Result navigation={navigation} item={item} />}
       renderItem={Result}
       keyExtractor={(item) => item.id}
     />
@@ -284,7 +307,9 @@ function CategoryItem({ item, navigation }) {
             }}
           />
         )}
-        <Text style={{ color: "white" }}>{item.description}</Text>
+        <Text style={{ color: "white", fontWeight: "600" }}>
+          {item.description}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -320,7 +345,7 @@ const styles = StyleSheet.create({
     container: {},
     scanPhoto: {},
   },
-  mainHeading: { fontSize: 20, color: "white" },
+  mainHeading: { fontSize: 20, color: "white", fontWeight: "600" },
 
   modal: { backgroundColor: "#121212" },
   item: {

@@ -19,6 +19,7 @@ import RecipesImg from "../../assets/img/img_05.png";
 import { ImageBackground } from "react-native";
 import Chopping from "../../assets/img/chopping.png";
 import StirFry from "../../assets/img/StirFry.png";
+import SnackFactsBanner from "../../assets/img/SnackFactsBanner.png";
 
 export default function SnapChopScreen({ navigation }) {
   return (
@@ -41,6 +42,7 @@ export default function SnapChopScreen({ navigation }) {
         navigation={navigation}
         screenName={"SnackFactsStack"}
         title={"Snack Facts"}
+        imageSource={SnackFactsBanner}
       />
     </ScrollView>
   );

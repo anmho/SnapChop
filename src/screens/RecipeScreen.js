@@ -49,6 +49,7 @@ export default function RecipeScreen({
       "Then add to bowl, top with avocado slices",
     ],
   },
+  category = "Breakfast Bowls",
 }) {
   return (
     <>
@@ -56,6 +57,8 @@ export default function RecipeScreen({
       {/* <SafeAreaView> */}
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         <Box alignItems={"center"} marginTop={70}>
+          <Text>{category}</Text>
+
           {/* Recipe Image */}
           <Image source={PotatoBowlIMG} alt={"img"} />
           {/* <View

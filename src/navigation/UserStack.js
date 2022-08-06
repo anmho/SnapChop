@@ -16,7 +16,7 @@ import ProfileStack from "../screens/ProfileScreen";
 import Test from "../screens/Test";
 // Stacks
 import ChatStack from "./ChatStack";
-import RecipesScreen from "../screens/RecipesScreen";
+import RecipesHomeScreen from "../screens/RecipesHomeScreen";
 import SnapChopStack from "./SnapChopStack";
 import TutorialsStack from "../screens/TutorialsStack";
 import RecipeScreen from "../screens/RecipeScreen";
