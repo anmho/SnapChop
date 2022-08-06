@@ -44,7 +44,7 @@ function Section({ title, items }) {
       </Text>
       <ScrollView horizontal={true} style={{ margin: 10 }}>
         {items.map((item) => (
-          <SectionItem image={item.image} />
+          <SectionItem image={item.image} key={item.image} />
         ))}
       </ScrollView>
     </Box>
@@ -72,6 +72,7 @@ function SectionItem({ image, title, videoUrl }) {
             bg={"gray.500"}
             mx={2}
             source={image}
+            alt="img"
           />
         </Box>
       )}

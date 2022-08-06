@@ -177,7 +177,7 @@ function Results({ navigation }) {
         {/* Content Items */}
         <View style={styles.item.content}>
           {item.content.map((contentItem) => (
-            <CategoryItem item={contentItem} />
+            <CategoryItem item={contentItem} key={contentItem} />
           ))}
         </View>
         <MoreButton

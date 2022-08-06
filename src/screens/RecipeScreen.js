@@ -93,6 +93,7 @@ export default function RecipeScreen({
               image={ingredient.image}
               amount={ingredient.amount}
               color={ingredient.color}
+              key={ingredient.color}
             />
           ))}
         </ScrollView>
