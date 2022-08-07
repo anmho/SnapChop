@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 // Screens
 import RecipesHomeScreen from "../screens/RecipesHomeScreen";
+import RecipeCategoryScreen from "../screens/RecipeCategoryScreen";
 import RecipeScreen from "../screens/RecipeScreen";
 
 const Stack = createStackNavigator();
@@ -19,6 +20,11 @@ export default function RecipesStack({ navigation }) {
         component={RecipesHomeScreen}
         title={"Recipes"}
         options={{ title: "Recipes", ...screenOptions }}
+      />
+      <Stack.Screen
+        name="RecipeCategoryScreen"
+        component={RecipeCategoryScreen}
+        options={{ ...screenOptions }}
       />
       <Stack.Screen
         name="RecipeScreen"

@@ -6,6 +6,14 @@ import Icon1 from "../../assets/img/img_01.png";
 import SnappyMealIMG from "../../assets/img/img_12.png";
 import CStudentIMG from "../../assets/img/img_08.png";
 import BreakfastIMG from "../../assets/img/img_09.png";
+import TacosLove from "../../assets/img/TacosCard.png";
+import SalsaDips from "../../assets/img/SalsaDipsCard.png";
+import ForCollegeStudents from "../../assets/img/ForCollegeStudentsCard.png";
+import BreakfastBowls from "../../assets/img/BreakfastBowlsCard.png";
+import SnappyMeals from "../../assets/img/SnappyMealsBackground.png";
+import VeganLife from "../../assets/img/VeganLifeCard.png";
+import BakedGoods from "../../assets/img/BakedGoodsCard.png";
+import ChilisCard from "../../assets/img/ChilisCard.png";
 
 import {
   Box,
@@ -22,222 +30,105 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function RecipesHomeScreen({ navigation }) {
   return (
-    <View>
-      <ScrollView>
-        <VStack flex="1">
-          <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity onPress={() => navigation.navigate("BakedGoods")}>
-              <Box
-                bg={"#7ED6DC"}
-                width={"110%"}
-                borderRadius={12}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Baked Goods
-                </Text>
-                <Center>
-                  <Image source={Chef} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("Vegan Life")}>
-              <Box
-                bg={"#91E68D"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Vegan Life
-                </Text>
-                <Center>
-                  <Image source={CookingIcon} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-          <HStack space={10} justifyContent="center" flex="1" mb={2}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Snappy Meal")}
-            >
-              <Box
-                bg={"#FE8CA3"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Snappy Meals
-                </Text>
-                <Center>
-                  <Image source={SnappyMealIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("RecipeScreen")}
-            >
-              <Box
-                bg={"#E7B6FE"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Breakfast Bowls
-                </Text>
-                <Center>
-                  <Image source={BreakfastIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-          <HStack space={10} justifyContent="center">
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"#91E68D"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  For Students
-                </Text>
-                <Center>
-                  <Image source={CStudentIMG} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"#FE8CA3"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Salsa Dips
-                </Text>
-                <Center>
-                  <Image source={Icon1} alt={"img"} size="xl" />
-                </Center>
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-          <HStack space={10} justifyContent="center">
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-                shadow={2}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  For Students
-                </Text>
-                <Image source={Icon1} alt={"img"} size="xl" />
-              </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={console.log("click")}>
-              <Box
-                bg={"white"}
-                width={"110%"}
-                borderRadius={15}
-                height={"90%"}
-                mb={5}
-              >
-                <Text
-                  fontSize="md"
-                  fontWeight={"bold"}
-                  fontFamily={"Graphik-Medium"}
-                  ml={3}
-                  color={"#FFFFFF"}
-                >
-                  Dips
-                </Text>
-                <Image source={Icon1} alt={"img"} size="xl" />
-              </Box>
-            </TouchableOpacity>
-          </HStack>
-        </VStack>
-      </ScrollView>
+    <ScrollView
+      bg="white"
+      // contentContainerStyle={}
+    >
+      {/* Heading */}
+      {/* <View justifyContent={"center"} alignItems={"center"}>
+        <Text fontsiz>Hello</Text>
+      </View> */}
+
+      {/* Category Buttons */}
+      <CategoryButtons navigation={navigation} />
+    </ScrollView>
+  );
+}
+
+function CategoryButtons({ navigation }) {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "center",
+        paddingLeft: 15,
+        paddingRight: 15,
+      }}
+    >
+      <Box width={"50%"}>
+        <CategoryButton
+          navigation={navigation}
+          imageSource={TacosLove}
+          alt={"Tacos Love"}
+          title={"Tacos Love"}
+        />
+
+        <CategoryButton
+          navigation={navigation}
+          imageSource={SnappyMeals}
+          alt={"Salsa Dips"}
+          title={"Salsa Dips"}
+        />
+        <CategoryButton
+          navigation={navigation}
+          imageSource={ForCollegeStudents}
+          alt={"For College Students"}
+          title={"For College Students"}
+        />
+        <CategoryButton
+          navigation={navigation}
+          imageSource={BakedGoods}
+          alt={"Baked Goods"}
+          title={"Baked Goods"}
+        />
+      </Box>
+      <Box pt={50} width={"50%"}>
+        <CategoryButton
+          navigation={navigation}
+          imageSource={VeganLife}
+          alt={"Vegan Life"}
+          title={"Vegan Life"}
+        />
+        <CategoryButton
+          navigation={navigation}
+          imageSource={BreakfastBowls}
+          alt={"Breakfast Bowls"}
+          title={"Breakfast Bowls"}
+        />
+        <CategoryButton
+          navigation={navigation}
+          imageSource={SalsaDips}
+          alt={"Salsa Dips"}
+          title={"Salsa Dips"}
+        />
+        <CategoryButton
+          navigation={navigation}
+          imageSource={ChilisCard}
+          alt={"Keep it Spicy"}
+          title={"Keep it Spicy"}
+        />
+      </Box>
     </View>
   );
 }
 
-function CategoryButton({ navigation, imageSource, title, screenName }) {
+function CategoryButton({
+  navigation,
+  imageSource,
+  title,
+  screenName = "RecipeCategoryScreen",
+}) {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
-      <Box bg={"white"} width={"110%"} borderRadius={12} height={"90%"} mb={5}>
-        <Text
-          fontSize="md"
-          fontWeight={"bold"}
-          fontFamily={"Graphik-Medium"}
-          ml={3}
-        >
-          {title}
-        </Text>
-        <Center>
-          <Image source={imageSource} alt={"img"} size="xl" />
-        </Center>
-      </Box>
-    </TouchableOpacity>
+    <Box
+      width={"100%"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      my={2}
+      shadow={4}
+    >
+      <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
+        <Image source={imageSource} resizeMode="contain" />
+      </TouchableOpacity>
+    </Box>
   );
 }

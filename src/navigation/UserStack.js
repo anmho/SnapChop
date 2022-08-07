@@ -20,7 +20,7 @@ import RecipesHomeScreen from "../screens/RecipesHomeScreen";
 import SnapChopStack from "./SnapChopStack";
 import TutorialsStack from "../screens/TutorialsStack";
 import RecipeScreen from "../screens/RecipeScreen";
-import BreakfastBowls from "../screens/BreakfastBowls";
+import RecipeCategoryScreen from "../screens/RecipeCategoryScreen";
 const Tab = createBottomTabNavigator();
 
 export default function UserStack() {

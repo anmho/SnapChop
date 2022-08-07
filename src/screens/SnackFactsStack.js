@@ -4,17 +4,17 @@ import SnackFactsScreen from "./SnackFactsScreen";
 
 const Stack = new createStackNavigator();
 export default function SnackFactsStack({ navigation }) {
-  const screenOptions = { headerShown: false };
+  // const screenOptions = { headerShown: false };
+  const screenOptions = { headerShown: true };
   return (
     <Stack.Navigator initialRouteName="SnackFactsHomeScreen">
       <Stack.Screen
         name="SnackFactsHomeScreen"
-        title={"Snack Facts"}
         component={SnackFactsHomeScreen}
         options={{ title: "Snack Facts", ...screenOptions }}
       />
       <Stack.Screen
-        name="SnackFacts"
+        name="SnackFactsScreen"
         component={SnackFactsScreen}
         options={{ title: "Snack Facts", ...screenOptions }}
       />

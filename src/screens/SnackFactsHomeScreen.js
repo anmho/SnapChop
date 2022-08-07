@@ -1,22 +1,29 @@
 import { View } from "react-native";
-import { Box, Image } from "native-base";
+import { Box, Image, ScrollView } from "native-base";
 import SnackFacts from "../../assets/img/SnackFacts.png";
-import { TouchableOpacity, ScrollView } from "react-native";
+import { TouchableOpacity, SafeAreaView } from "react-native";
 
-export default function SnackFactsScreen({ navigation }) {
+export default function SnackFactsHomeScreen({ navigation }) {
   return (
-    <Box justifyContent={"center"} alignItems={"center"}>
-      <Image source={SnackFacts} width={"100%"} height={"100%"} alt="img" />
-      <TouchableOpacity
-        style={{
-          position: "absolute",
-          height: "100%",
-          width: "100%",
-          top: 0,
-          left: 0,
-        }}
-        onPress={() => navigation.navigate("SnackFacts")}
-      ></TouchableOpacity>
-    </Box>
+    <ScrollView
+      contentContainerStyle={{
+        // justifyContent: "center",
+        backgroundColor: "white",
+        // alignItems: "center",
+      }}
+    >
+      <SafeAreaView display="block">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("SnackFactsScreen")}
+        >
+          <Image
+            // bg={"red.500"}
+            source={SnackFacts}
+            resizeMode={"contain"}
+            style={{ flex: 1, height: 710 }}
+          />
+        </TouchableOpacity>
+      </SafeAreaView>
+    </ScrollView>
   );
 }

@@ -24,7 +24,7 @@ import RecipesHomeScreen from "../screens/RecipesHomeScreen";
 import SnapChopScreen from "./SnapChopScreen";
 import RecipeScreen from "../screens/RecipeScreen";
 import TutorialsScreen from "../screens/TutorialsScreen";
-import SnackFactsScreen from "./SnackFactsHomeScreen";
+import SnackFactsHomeScreen from "./SnackFactsHomeScreen";
 import SnapChopStack from "../navigation/SnapChopStack";
 
 export function CameraScreen({ navigation, focused }) {

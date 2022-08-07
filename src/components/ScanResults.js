@@ -58,7 +58,10 @@ export default function ScanResults({ scanResultsRef, navigation }) {
   );
 }
 
-function Heading({ scanResultsRef }) {
+function Heading({
+  scanResultsRef,
+  image = require("../../assets/img/Onion.png"),
+}) {
   return (
     <View
       style={{
@@ -83,13 +86,19 @@ function Heading({ scanResultsRef }) {
         <View
           style={{
             backgroundColor: "#D9D9D9",
-            // width: 40,
             height: 50,
             aspectRatio: 4 / 5,
             borderRadius: 10,
             marginRight: 10,
           }}
-        />
+        >
+          <Image
+            height={"100%"}
+            source={image}
+            resizeMode={"cover"}
+            borderRadius={10}
+          />
+        </View>
 
         <View style={{ flex: 1 }}>
           <Text style={styles.mainHeading}>Scan Results</Text>

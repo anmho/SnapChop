@@ -9,6 +9,10 @@ import Avocado from "../../assets/img/img_32.png";
 import BellPepper from "../../assets/img/img_33.png";
 import MapIng from "../../assets/img/img_29.png";
 import PotatoBowlIMG from "../../assets/img/img_20.png";
+import Video1 from "../../assets/img/Video1.png";
+import Video2 from "../../assets/img/Video2.png";
+import Video3 from "../../assets/img/Video3.png";
+
 export default function RecipeScreen({
   recipe = {
     servings: 5,
@@ -56,6 +60,7 @@ export default function RecipeScreen({
       {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
       {/* <SafeAreaView> */}
       <ScrollView contentContainerStyle={{ padding: 20 }}>
+        {/* Heading */}
         <Box alignItems={"center"} marginTop={70}>
           <Text>{category}</Text>
 
@@ -70,6 +75,7 @@ export default function RecipeScreen({
             }}
           ></View> */}
         </Box>
+
         {/* Tags */}
         <View style={styles.ingredients}>
           <Tag name={`Servings: ${recipe.servings}`} />
@@ -84,6 +90,7 @@ export default function RecipeScreen({
             {recipe.name.toUpperCase()}
           </Text>
         </Box>
+
         {/* Ingredients */}
         <ScrollView horizontal={true}>
           {recipe.ingredients.map((ingredient) => (
@@ -95,20 +102,10 @@ export default function RecipeScreen({
             />
           ))}
         </ScrollView>
-        {/* How To Content*/}
-        <Box px={2} pt={2}>
-          <Text fontSize={"md"} fontWeight={"bold"}>
-            {"HOW TO"}
-          </Text>
-        </Box>
-        <ScrollView horizontal={true}>
-          <Content />
-          <Content />
-        </ScrollView>
+
         {/* Find Ingredients/Map Preview */}
         <MapPreview />
         {/* Ingredients */}
-        {/* <Box mt={4} p={5} borderRadius="md" bg="white" shadow={1}> */}
         <Box p={5} borderRadius="md" bg="white" shadow={1}>
           <Text
             fontSize={"2xl"}
@@ -128,24 +125,36 @@ export default function RecipeScreen({
             </Box>
           ))}
         </Box>
+
+        {/* How To Content*/}
+        <Box px={2} pt={2}>
+          <Text fontSize={"md"} fontWeight={"bold"}>
+            {"HOW TO"}
+          </Text>
+        </Box>
+        <ScrollView horizontal={true}>
+          <Content image={Video1} />
+          <Content image={Video2} />
+          <Content image={Video3} />
+        </ScrollView>
       </ScrollView>
     </>
   );
 }
 
-function Content({ videoUrl }) {
+function Content({ image, videoUrl }) {
   return (
     <Box
       display="flex"
       justifyContent={"center"}
       alignItems={"center"}
-      margin={1}
+      margin={2}
     >
       <Box
         backgroundColor={"gray.500"}
         borderRadius={10}
-        width={200}
-        aspectRatio={2 / 1}
+        width={100}
+        aspectRatio={10 / 16}
         shadow={2}
       ></Box>
       <Box marginTop={2}>
@@ -210,18 +219,20 @@ function MapPreview() {
   return (
     <Box
       // width={"100%"}
-      padding={5}
+      px={1}
+      py={5}
       // aspectRatio={4 / 2}
       // bg={"green.500"}
       borderRadius={10}
-      shadow={2}
     >
       <Text fontSize={"xl"} fontWeight={"bold"} fontFamily={"Graphik-Medium"}>
         Find Ingredients
       </Text>
-      <Center>
-        <Image source={MapIng} width={"100%"} borderRadius={10} alt={"img"} />
-      </Center>
+      <TouchableOpacity>
+        <Center shadow={2}>
+          <Image source={MapIng} width={"100%"} borderRadius={10} alt={"img"} />
+        </Center>
+      </TouchableOpacity>
     </Box>
   );
 }
