@@ -17,11 +17,17 @@ export default function StatBar({ navigation, screen }) {
       {new Set(["Profile"]).has(screen) ? (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.iconContainer}>
-            <Ionicons name="chevron-back-outline" size={15} color="#ffffff" />
+            <Ionicons name="chevron-back-outline" size={14} color="#ffffff" />
           </View>
         </TouchableOpacity>
       ) : (
-        <>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("Profile");
@@ -33,10 +39,20 @@ export default function StatBar({ navigation, screen }) {
             />
           </TouchableOpacity>
           {/* Search Button */}
-          <View style={styles.iconContainer}>
-            <Icon name="search" size={15} color="#ffffff" />
+          <View
+            style={
+              screen === "Camera"
+                ? styles.iconContainer.camera
+                : styles.iconContainer.other
+            }
+          >
+            <Icon
+              name="search"
+              size={15}
+              color={screen === "camera" ? "#ffffff" : "#646D78"}
+            />
           </View>
-        </>
+        </View>
       )}
 
       {/* Different titles for different screensx */}
@@ -83,7 +99,6 @@ const styles = StyleSheet.create({
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      // backgroundColor: "red",
     },
   },
   bitmojiImage: {
@@ -92,16 +107,30 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   iconContainer: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 40,
-    height: 40,
-    backgroundColor: "rgba(104,104,104, 0.55)",
-    borderRadius: 35,
-    marginLeft: 10,
+    camera: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 40,
+      height: 40,
+      backgroundColor: "rgba(104,104,104, 0.55)",
+      borderRadius: 35,
+      marginLeft: 10,
+    },
+    other: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      width: 40,
+      height: 40,
+      backgroundColor: "#F1F2F4",
+      borderRadius: 35,
+      marginLeft: 10,
+    },
   },
   barTitle: {
     width: 150,

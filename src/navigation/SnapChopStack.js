@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, Header } from "@react-navigation/stack";
 
 import { Button } from "react-native";
 
@@ -46,12 +46,41 @@ function LogoTitle() {
   );
 }
 
+function HeaderRight() {
+  return (
+    <Box
+      alignItems={"center"}
+      justifyContent={"flex-end"}
+      flexDir={"row"}
+      pr={2}
+    >
+      <Image
+        source={require("../../assets/snapchat/AddFriendIcon.png")}
+        resizeMode={"contain"}
+        height={10}
+        mr={2}
+        width={10}
+        alt={"Add Friends"}
+      />
+
+      <Image
+        source={require("../../assets/snapchat/OptionsIcon.png")}
+        resizeMode={"contain"}
+        height={10}
+        width={10}
+        alt={"Options"}
+      />
+    </Box>
+  );
+}
+
 export default function SnapChopStack({ navigation, route }) {
   let screenOptions = {
     tabBarShowLabel: false,
     headerShown: true,
     headerTitle: (props) => <LogoTitle {...props} />,
     headerLeft: () => <StatBar navigation={navigation} />,
+    headerRight: () => <HeaderRight />,
     initial: false,
   };
 

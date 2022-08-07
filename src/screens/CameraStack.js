@@ -40,7 +40,7 @@ export default function CameraStack() {
       <Stack.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen
         name="SnapChopStack"
@@ -50,4 +50,3 @@ export default function CameraStack() {
     </Stack.Navigator>
   );
 }
-
