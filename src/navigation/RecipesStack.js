@@ -18,7 +18,6 @@ export default function RecipesStack({ navigation }) {
       <Stack.Screen
         name="RecipesHomeScreen"
         component={RecipesHomeScreen}
-        title={"Recipes"}
         options={{ title: "Recipes", ...screenOptions }}
       />
       <Stack.Screen

@@ -4,14 +4,17 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function StatBar({ navigation, screen = "camera" }) {
+export default function StatBar({ navigation, screen }) {
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        screen === "Camera" ? styles.container.camera : styles.container.other
+      }
+    >
       {/* Profile Button */}
-
       {console.log(screen)}
 
-      {new Set(["Profile", "Recipe", "Tutorials"]).has(screen) ? (
+      {new Set(["Profile"]).has(screen) ? (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.iconContainer}>
             <Ionicons name="chevron-back-outline" size={15} color="#ffffff" />
@@ -64,15 +67,24 @@ export default function StatBar({ navigation, screen = "camera" }) {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    width: "100%",
-    height: 50,
-    position: "absolute",
-    top: 40,
-    zIndex: 100,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    camera: {
+      width: "100%",
+      height: 50,
+      position: "absolute",
+      top: 40,
+      zIndex: 100,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    other: {
+      width: "100%",
+      zIndex: 100,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      // backgroundColor: "red",
+    },
   },
   bitmojiImage: {
     width: 40,

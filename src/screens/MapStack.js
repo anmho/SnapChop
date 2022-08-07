@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import StatBar from "../components/StatBar";
 
 import * as Location from "expo-location";
 
@@ -104,9 +105,14 @@ export function MapScreen({ navigation }) {
 }
 
 export default function MapStack({ navigation }) {
+  const screenOptions = {
+    tabBarShowLabel: false,
+    headerShown: true,
+    headerLeft: () => <StatBar navigation={navigation}  />,
+  };
   return (
     <Stack.Navigator initialRouteName="Map">
-      <Stack.Screen name="Map" component={MapScreen} />
+      <Stack.Screen name="Map" component={MapScreen} options={screenOptions} />
     </Stack.Navigator>
   );
 }

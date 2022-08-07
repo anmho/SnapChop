@@ -133,17 +133,26 @@ let data = [
       "Empowering ALL communities with accessible, healthy foods in a fun way",
     content: [
       {
-        source: "TutorialsStack",
+        source: {
+          stack: "SnapChopStack",
+          screen: "TutorialsHomeScreen",
+        },
         icon: TutorialsButtonScan,
         description: "Cookin' with Chefs",
       },
       {
-        source: "RecipesStack",
+        source: {
+          stack: "SnapChopStack",
+          screen: "RecipesHomeScreen",
+        },
         icon: RecipesButtonScan,
         description: "Our Own Recipes",
       },
       {
-        source: "SnackFactsStack",
+        source: {
+          stack: "SnapChopStack",
+          screen: "SnackFactsHomeScreen",
+        },
         icon: SnackFactsButtonScan,
         description: "Snack Facts",
       },
@@ -281,7 +290,7 @@ function CategoryItem({ item, navigation }) {
     <TouchableOpacity
       onPress={() =>
         navigation.navigate(stack, {
-          screen: item.source,
+          screen: item.source.screen,
         })
       }
     >

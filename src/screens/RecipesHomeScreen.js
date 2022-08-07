@@ -14,30 +14,20 @@ import SnappyMeals from "../../assets/img/SnappyMealsBackground.png";
 import VeganLife from "../../assets/img/VeganLifeCard.png";
 import BakedGoods from "../../assets/img/BakedGoodsCard.png";
 import ChilisCard from "../../assets/img/ChilisCard.png";
-
-import {
-  Box,
-  Heading,
-  Image,
-  View,
-  Text,
-  Center,
-  HStack,
-  VStack,
-  ScrollView,
-} from "native-base";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { Box, Image, View, Text, ScrollView } from "native-base";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import SnapChopHeading from "../components/SnapChopHeading";
 
 export default function RecipesHomeScreen({ navigation }) {
   return (
-    <ScrollView
-      bg="white"
-      // contentContainerStyle={}
-    >
+    <ScrollView bg="white">
       {/* Heading */}
-      {/* <View justifyContent={"center"} alignItems={"center"}>
-        <Text fontsiz>Hello</Text>
-      </View> */}
+      <SnapChopHeading
+        navigation={navigation}
+        title="Recipes"
+        action={(navigation) => navigation.navigate("SnapChopScreen")}
+      />
 
       {/* Category Buttons */}
       <CategoryButtons navigation={navigation} />

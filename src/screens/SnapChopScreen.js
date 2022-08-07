@@ -24,23 +24,24 @@ import SnackFactsBanner from "../../assets/img/SnackFactsBanner.png";
 export default function SnapChopScreen({ navigation }) {
   return (
     <ScrollView
+      bg={"white"}
       contentContainerStyle={{ padding: 20, backgroundColor: "white" }}
     >
       <ScreenButton
         navigation={navigation}
-        screenName={"TutorialsStack"}
+        screenName={"TutorialsHomeScreen"}
         title={"Cookin' with Chefs"}
         imageSource={Chopping}
       />
       <ScreenButton
         navigation={navigation}
-        screenName={"RecipesStack"}
+        screenName={"RecipesHomeScreen"}
         title={"Recipes"}
         imageSource={StirFry}
       />
       <ScreenButton
         navigation={navigation}
-        screenName={"SnackFactsStack"}
+        screenName={"SnackFactsHomeScreen"}
         title={"Snack Facts"}
         imageSource={SnackFactsBanner}
       />

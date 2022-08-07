@@ -3,9 +3,6 @@ import { Text, Box } from "native-base";
 import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
 import StatBar from "../components/StatBar";
 import TutorialScreen from "./TutorialScreen";
-// import Video1 from "../../assets/img/Video1.png";
-// import Video2 from "../../assets/img/Video2.png";
-// import Video3 from "../../assets/img/Video3.png";
 import LeeCutting from "../../assets/img/LeeCutting.png";
 import OnionChopping from "../../assets/img/OnionChopping.png";
 import Salt from "../../assets/img/Salt.png";
@@ -15,22 +12,16 @@ import Soup from "../../assets/img/Soup.png";
 import CollardChili from "../../assets/img/CollardChili.png";
 import DustinSaute from "../../assets/img/DustinSaute.png";
 import Veggies from "../../assets/img/Veggies.png";
-
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { Image } from "native-base";
 
-export default function TutorialsScreen({ navigation }) {
+export default function TutorialsHomeScreen({ navigation }) {
   return (
     <>
-      <StatBar navigation={navigation} screen={"Tutorials"} />
-      <ScrollView style={{ padding: 20, paddingTop: 90 }}>
-        <Box justifyContent="center" alignItems={"center"} mb={2}>
-          <Text fontSize={"2xl"} fontWeight="bold">
-            How To
-          </Text>
-        </Box>
-
+      <ScrollView style={{ padding: 10, backgroundColor: "white" }}>
+        <Heading navigation={navigation} />
         <Section
-          title={"Master 5 Basic Cooking Skill"}
+          title={"Master 5 Basic Cooking Skills"}
           items={[
             { image: LeeCutting },
             { image: OnionChopping },
@@ -38,7 +29,7 @@ export default function TutorialsScreen({ navigation }) {
           ]}
         />
         <Section
-          title={"Master 5 Basic Cooking Skill"}
+          title={"Cook Like a Chef"}
           items={[
             { image: ChoppingPepper },
             { image: ChickpeaSweetPotato },
@@ -55,6 +46,35 @@ export default function TutorialsScreen({ navigation }) {
         />
       </ScrollView>
     </>
+  );
+}
+
+function Heading({ navigation }) {
+  return (
+    <Box
+      flexDir={"row"}
+      justifyContent="space-between"
+      alignItems={"center"}
+      mb={2}
+      px={4}
+    >
+      <TouchableOpacity onPress={() => navigation.navigate("SnapChopScreen")}>
+        <Box
+          bg={"#FFE300"}
+          h={10}
+          w={10}
+          borderRadius={12}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Ionicons name="chevron-back-outline" size={24} color="black" />
+        </Box>
+      </TouchableOpacity>
+      <Text fontSize={"2xl"} fontWeight="bold">
+        How To
+      </Text>
+      <Box h={10} w={10} borderRadius={12} />
+    </Box>
   );
 }
 

@@ -9,18 +9,9 @@ import SoupBowl from "../../assets/img/SoupBowl.png";
 import VeggieBowl from "../../assets/img/VeggieBowl.png";
 import ProteinBowl from "../../assets/img/ProteinBowl.png";
 
-import {
-  Box,
-  Heading,
-  Image,
-  View,
-  Text,
-  Center,
-  HStack,
-  VStack,
-  ScrollView,
-} from "native-base";
+import { Box, Heading, Image, Text, Center, ScrollView } from "native-base";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import SnapChopHeading from "../components/SnapChopHeading";
 
 export default function RecipeCategoryScreen({
   navigation,
@@ -82,12 +73,17 @@ export default function RecipeCategoryScreen({
       color: "#7ED6DC",
     },
   ],
+  title = "Breakfast Bowls",
 }) {
   return (
-    <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
-      <Center mt={3}>
+    <ScrollView
+      backgroundColor={"white"}
+      contentContainerStyle={{ paddingHorizontal: 20 }}
+    >
+      <SnapChopHeading navigation={navigation} title={title} />
+      {/* <Center mt={3}>
         <Heading fontFamily={"Graphik-Medium"}>Breakfast Bowls</Heading>
-      </Center>
+      </Center> */}
 
       {recipes.map((recipe, i) => (
         <RecipeButton

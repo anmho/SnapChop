@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { Box, Text, Image, Center } from "native-base";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "native-base";
 import { ImageBackground } from "react-native";
 import PotatoIMG from "../../assets/img/img_30.png";
 import Onion from "../../assets/img/img_31.png";
@@ -12,8 +12,10 @@ import PotatoBowlIMG from "../../assets/img/img_20.png";
 import Video1 from "../../assets/img/Video1.png";
 import Video2 from "../../assets/img/Video2.png";
 import Video3 from "../../assets/img/Video3.png";
+import SnapChopHeading from "../components/SnapChopHeading";
 
 export default function RecipeScreen({
+  navigation,
   recipe = {
     servings: 5,
     calories: 500,
@@ -57,23 +59,18 @@ export default function RecipeScreen({
 }) {
   return (
     <>
-      {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
-      {/* <SafeAreaView> */}
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
+      <ScrollView
+        bg={"white"}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          backgroundColor: "white",
+        }}
+      >
         {/* Heading */}
-        <Box alignItems={"center"} marginTop={70}>
-          <Text>{category}</Text>
-
+        <SnapChopHeading navigation={navigation} title={category} />
+        <Box alignItems={"center"}>
           {/* Recipe Image */}
           <Image source={PotatoBowlIMG} alt={"img"} />
-          {/* <View
-            style={{
-              width: "100%",
-              aspectRatio: 1 / 1,
-              backgroundColor: "red",
-              borderRadius: 20,
-            }}
-          ></View> */}
         </Box>
 
         {/* Tags */}
@@ -86,7 +83,11 @@ export default function RecipeScreen({
         </View>
         {/* Recipe Name */}
         <Box px={2}>
-          <Text fontSize={"2xl"} fontWeight={"bold"}>
+          <Text
+            fontSize={"2xl"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
             {recipe.name.toUpperCase()}
           </Text>
         </Box>
@@ -128,7 +129,11 @@ export default function RecipeScreen({
 
         {/* How To Content*/}
         <Box px={2} pt={2}>
-          <Text fontSize={"md"} fontWeight={"bold"}>
+          <Text
+            fontSize={"md"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
             {"HOW TO"}
           </Text>
         </Box>
@@ -150,13 +155,25 @@ function Content({ image, videoUrl }) {
       alignItems={"center"}
       margin={2}
     >
-      <Box
-        backgroundColor={"gray.500"}
-        borderRadius={10}
-        width={100}
-        aspectRatio={10 / 16}
-        shadow={2}
-      ></Box>
+      <TouchableOpacity>
+        {image ? (
+          <Image
+            source={image}
+            borderRadius={10}
+            resizeMode={"contain"}
+            shadow={2}
+          ></Image>
+        ) : (
+          <Box
+            backgroundColor={"gray.500"}
+            borderRadius={10}
+            width={100}
+            aspectRatio={10 / 16}
+            shadow={2}
+          ></Box>
+        )}
+      </TouchableOpacity>
+
       <Box marginTop={2}>
         {/* <Text fontSize={"md"}>{`${amount} ${name}`}</Text> */}
       </Box>
@@ -167,8 +184,9 @@ function Content({ image, videoUrl }) {
 function Tag({ name }) {
   return (
     <Box
-      bg={"white"}
-      height={8}
+      bg={"#91E68D"}
+      height={6}
+      py={1}
       shadow={2}
       paddingX={2}
       borderRadius={10}
@@ -177,7 +195,9 @@ function Tag({ name }) {
       alignItems={"center"}
       margin={1}
     >
-      <Text fontFamily={"Graphik-Medium"}>{name}</Text>
+      <Text fontFamily={"Graphik-Medium"} fontSize={12}>
+        {name}
+      </Text>
     </Box>
   );
 }

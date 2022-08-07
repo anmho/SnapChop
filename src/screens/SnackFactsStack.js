@@ -4,8 +4,8 @@ import SnackFactsScreen from "./SnackFactsScreen";
 
 const Stack = new createStackNavigator();
 export default function SnackFactsStack({ navigation }) {
-  // const screenOptions = { headerShown: false };
-  const screenOptions = { headerShown: true };
+  const screenOptions = { headerShown: false };
+  
   return (
     <Stack.Navigator initialRouteName="SnackFactsHomeScreen">
       <Stack.Screen
