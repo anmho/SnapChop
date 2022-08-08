@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { Box, Text, Image, Center } from "native-base";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "native-base";
 import { ImageBackground } from "react-native";
 import PotatoIMG from "../../assets/img/img_30.png";
 import Onion from "../../assets/img/img_31.png";
@@ -9,7 +9,13 @@ import Avocado from "../../assets/img/img_32.png";
 import BellPepper from "../../assets/img/img_33.png";
 import MapIng from "../../assets/img/img_29.png";
 import PotatoBowlIMG from "../../assets/img/img_20.png";
+import Video1 from "../../assets/img/Video1.png";
+import Video2 from "../../assets/img/Video2.png";
+import Video3 from "../../assets/img/Video3.png";
+import SnapChopHeading from "../components/SnapChopHeading";
+
 export default function RecipeScreen({
+  navigation,
   recipe = {
     servings: 5,
     calories: 500,
@@ -49,24 +55,24 @@ export default function RecipeScreen({
       "Then add to bowl, top with avocado slices",
     ],
   },
+  category = "Breakfast Bowls",
 }) {
   return (
     <>
-      {/* <StatBar navigation={navigation} screen={"Recipe"} /> */}
-      {/* <SafeAreaView> */}
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
-        <Box alignItems={"center"} marginTop={70}>
+      <ScrollView
+        bg={"white"}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          backgroundColor: "white",
+        }}
+      >
+        {/* Heading */}
+        <SnapChopHeading navigation={navigation} title={category} />
+        <Box alignItems={"center"}>
           {/* Recipe Image */}
           <Image source={PotatoBowlIMG} alt={"img"} />
-          {/* <View
-            style={{
-              width: "100%",
-              aspectRatio: 1 / 1,
-              backgroundColor: "red",
-              borderRadius: 20,
-            }}
-          ></View> */}
         </Box>
+
         {/* Tags */}
         <View style={styles.ingredients}>
           <Tag name={`Servings: ${recipe.servings}`} />
@@ -77,10 +83,15 @@ export default function RecipeScreen({
         </View>
         {/* Recipe Name */}
         <Box px={2}>
-          <Text fontSize={"2xl"} fontWeight={"bold"}>
+          <Text
+            fontSize={"2xl"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
             {recipe.name.toUpperCase()}
           </Text>
         </Box>
+
         {/* Ingredients */}
         <ScrollView horizontal={true}>
           {recipe.ingredients.map((ingredient) => (
@@ -92,20 +103,10 @@ export default function RecipeScreen({
             />
           ))}
         </ScrollView>
-        {/* How To Content*/}
-        <Box px={2} pt={2}>
-          <Text fontSize={"md"} fontWeight={"bold"}>
-            {"HOW TO"}
-          </Text>
-        </Box>
-        <ScrollView horizontal={true}>
-          <Content />
-          <Content />
-        </ScrollView>
+
         {/* Find Ingredients/Map Preview */}
         <MapPreview />
         {/* Ingredients */}
-        {/* <Box mt={4} p={5} borderRadius="md" bg="white" shadow={1}> */}
         <Box p={5} borderRadius="md" bg="white" shadow={1}>
           <Text
             fontSize={"2xl"}
@@ -125,26 +126,54 @@ export default function RecipeScreen({
             </Box>
           ))}
         </Box>
+
+        {/* How To Content*/}
+        <Box px={2} pt={2}>
+          <Text
+            fontSize={"md"}
+            fontWeight={"bold"}
+            fontFamily={"Graphik-Medium"}
+          >
+            {"HOW TO"}
+          </Text>
+        </Box>
+        <ScrollView horizontal={true}>
+          <Content image={Video1} />
+          <Content image={Video2} />
+          <Content image={Video3} />
+        </ScrollView>
       </ScrollView>
     </>
   );
 }
 
-function Content({ videoUrl }) {
+function Content({ image, videoUrl }) {
   return (
     <Box
       display="flex"
       justifyContent={"center"}
       alignItems={"center"}
-      margin={1}
+      margin={2}
     >
-      <Box
-        backgroundColor={"gray.500"}
-        borderRadius={10}
-        width={200}
-        aspectRatio={2 / 1}
-        shadow={2}
-      ></Box>
+      <TouchableOpacity>
+        {image ? (
+          <Image
+            source={image}
+            borderRadius={10}
+            resizeMode={"contain"}
+            shadow={2}
+          ></Image>
+        ) : (
+          <Box
+            backgroundColor={"gray.500"}
+            borderRadius={10}
+            width={100}
+            aspectRatio={10 / 16}
+            shadow={2}
+          ></Box>
+        )}
+      </TouchableOpacity>
+
       <Box marginTop={2}>
         {/* <Text fontSize={"md"}>{`${amount} ${name}`}</Text> */}
       </Box>
@@ -155,8 +184,9 @@ function Content({ videoUrl }) {
 function Tag({ name }) {
   return (
     <Box
-      bg={"white"}
-      height={8}
+      bg={"#91E68D"}
+      height={6}
+      py={1}
       shadow={2}
       paddingX={2}
       borderRadius={10}
@@ -165,7 +195,9 @@ function Tag({ name }) {
       alignItems={"center"}
       margin={1}
     >
-      <Text fontFamily={"Graphik-Medium"}>{name}</Text>
+      <Text fontFamily={"Graphik-Medium"} fontSize={12}>
+        {name}
+      </Text>
     </Box>
   );
 }
@@ -207,18 +239,20 @@ function MapPreview() {
   return (
     <Box
       // width={"100%"}
-      padding={5}
+      px={1}
+      py={5}
       // aspectRatio={4 / 2}
       // bg={"green.500"}
       borderRadius={10}
-      shadow={2}
     >
       <Text fontSize={"xl"} fontWeight={"bold"} fontFamily={"Graphik-Medium"}>
         Find Ingredients
       </Text>
-      <Center>
-        <Image source={MapIng} width={"100%"} borderRadius={10} alt={"img"} />
-      </Center>
+      <TouchableOpacity>
+        <Center shadow={2}>
+          <Image source={MapIng} width={"100%"} borderRadius={10} alt={"img"} />
+        </Center>
+      </TouchableOpacity>
     </Box>
   );
 }

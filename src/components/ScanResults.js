@@ -17,24 +17,25 @@ import {
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import SnapChopIcon from "../../assets/img/SnapChopIcon.png";
+import RecipesButtonScan from "../../assets/img/RecipesButtonScan.png";
+import SnackFactsButtonScan from "../../assets/img/SnackFactsButtonScan.png";
+import TutorialsButtonScan from "../../assets/img/TutorialsButtonScan.png";
+import Lens1Image from "../../assets/img/Lens1.png";
+import Lens2Image from "../../assets/img/Lens2.png";
+
+import { Image } from "native-base";
+
 // import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function ScanResults({ scanResultsRef, navigation }) {
-  // ref
-  // const scanResultsRef = useRef(null);
-
   // variables
   const snapPoints = useMemo(() => ["25%", "50%", "90%"], []);
 
   // callbacks
-
   const handleSheetChanges = useCallback((index) => {
     console.log("handleSheetChanges", index);
   }, []);
-
-  // const handlePresentModalPress = useCallback(() => {
-  //   scanResultsRef.current.present();
-  // }, []);
 
   return (
     <BottomSheetModalProvider>
@@ -57,7 +58,10 @@ export default function ScanResults({ scanResultsRef, navigation }) {
   );
 }
 
-function Heading({ scanResultsRef }) {
+function Heading({
+  scanResultsRef,
+  image = require("../../assets/img/Onion.png"),
+}) {
   return (
     <View
       style={{
@@ -70,16 +74,31 @@ function Heading({ scanResultsRef }) {
         flexWrap: "wrap",
       }}
     >
-      <View style={{ flex: 1, flexDirection: "row" }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {/* Image Placeholder */}
         <View
           style={{
             backgroundColor: "#D9D9D9",
-            width: 50,
             height: 50,
+            aspectRatio: 4 / 5,
             borderRadius: 10,
             marginRight: 10,
           }}
-        />
+        >
+          <Image
+            height={"100%"}
+            source={image}
+            resizeMode={"cover"}
+            borderRadius={10}
+          />
+        </View>
 
         <View style={{ flex: 1 }}>
           <Text style={styles.mainHeading}>Scan Results</Text>
@@ -106,75 +125,149 @@ function Heading({ scanResultsRef }) {
   );
 }
 
+let data = [
+  {
+    title: "Snap Chop",
+    icon: SnapChopIcon,
+    description:
+      "Empowering ALL communities with accessible, healthy foods in a fun way",
+    content: [
+      {
+        source: {
+          stack: "SnapChopStack",
+          screen: "TutorialsHomeScreen",
+        },
+        icon: TutorialsButtonScan,
+        description: "Cookin' with Chefs",
+      },
+      {
+        source: {
+          stack: "SnapChopStack",
+          screen: "RecipesHomeScreen",
+        },
+        icon: RecipesButtonScan,
+        description: "Our Own Recipes",
+      },
+      {
+        source: {
+          stack: "SnapChopStack",
+          screen: "SnackFactsHomeScreen",
+        },
+        icon: SnackFactsButtonScan,
+        description: "Snack Facts",
+      },
+    ],
+    more: { name: "Snap Chop", source: "SnapChopStack" },
+  },
+  {
+    title: "Food Lenses",
+    content: [
+      {
+        icon: Lens1Image,
+        description: "Funny Onions",
+        // source: "",
+      },
+      {
+        icon: Lens2Image,
+        description: "Big Mouth",
+        // source: "",
+      },
+      // {
+      //   description: "Lens 3",
+      // },
+    ],
+    more: { name: "Try Lenses (20)", source: "" },
+  },
+  {
+    title: "dummy",
+    content: [],
+  },
+];
+
+data = data.map((item, i) => {
+  return { id: i, ...item };
+});
+
 function Results({ navigation }) {
-  let data = [
-    {
-      title: "Lenses",
-      content: [
-        {
-          description: "Lens 1",
-        },
-        {
-          description: "Lens 2",
-        },
-        {
-          description: "Lens 3",
-        },
-      ],
-      more: { name: "Try Lenses (20)", source: "" },
-    },
-    {
-      title: "Snap Chop",
-      content: [
-        {
-          description: "Recipes",
-        },
-        {
-          description: '"How To" Tutorials',
-        },
-        {
-          description: "Fun Facts",
-        },
-      ],
-      more: { name: "Snap Chop", source: "SnapChopStack" },
-    },
-    {
-      title: "dummy",
-      content: [],
-    },
-  ];
-
-  data = data.map((item, i) => {
-    return { id: i, ...item };
-  });
-
-  const renderItem = ({ item }) => {
+  const Result = ({ item }) => {
     if (item.id === data.length - 1)
       return <View style={{ height: 120 }} key={item.id} />;
     return (
       <View style={styles.item} key={item.id}>
         {/* Category */}
+        {/* Title */}
         <View
           style={{
             justifyContent: "center",
             flex: 1,
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white", fontSize: 20 }}>{item.title}</Text>
+          {item.icon && (
+            <View
+              style={{
+                display: "flex",
+                width: "50%",
+                paddingRight: 10,
+              }}
+            >
+              <View
+                style={{
+                  alignSelf: "flex-end",
+                  borderRadius: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "white",
+                  padding: 2,
+                }}
+              >
+                <Image source={item.icon} size={7} />
+              </View>
+            </View>
+          )}
+          <View>
+            <Text
+              style={{
+                alignSelf: "center",
+                color: "#A8B0B6",
+                fontWeight: "bold",
+                fontSize: 20,
+              }}
+            >
+              {item.title}
+            </Text>
+          </View>
+          {item.icon ? <View style={{ width: "50%" }}></View> : null}
         </View>
+        {/* Description */}
+        {item.description && (
+          <View
+            style={{
+              paddingHorizontal: 20,
+              paddingVertical: 10,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#9F9F9F", fontWeight: "600" }}>
+              {item.description}
+            </Text>
+          </View>
+        )}
         {/* Content Items */}
         <View style={styles.item.content}>
           {item.content.map((contentItem) => (
-            <CategoryItem item={contentItem} />
+            <CategoryItem item={contentItem} navigation={navigation} />
           ))}
         </View>
-        <MoreButton
-          name={item.more.name}
-          source={item.more.source}
-          navigation={navigation}
-        />
+        {item.more && (
+          <MoreButton
+            name={item.more.name}
+            source={item.more.source}
+            navigation={navigation}
+          />
+        )}
       </View>
     );
   };
@@ -183,34 +276,60 @@ function Results({ navigation }) {
     <FlatList
       style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 100 }}
       data={data}
-      renderItem={renderItem}
+      // renderItem={(item, navigation) => <Result navigation={navigation} item={item} />}
+      renderItem={Result}
       keyExtractor={(item) => item.id}
     />
   );
 }
 
-function CategoryItem({ item }) {
+function CategoryItem({ item, navigation }) {
+  const stack = "SnapChopStack";
+  console.log(item.source);
   return (
-    <View
-      style={{
-        padding: 2,
-        flexDirection: "row",
-        alignItems: "center",
-        marginTop: 5,
-        marginBottom: 5,
-      }}
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate(stack, {
+          screen: item.source.screen,
+        })
+      }
     >
       <View
         style={{
-          borderRadius: "100%",
-          backgroundColor: "#D9D9D9",
-          width: 50,
-          aspectRatio: 1 / 1,
-          marginRight: 10,
+          padding: 2,
+          flexDirection: "row",
+          alignItems: "center",
+          marginTop: 5,
+          marginBottom: 5,
         }}
-      />
-      <Text style={{ color: "white" }}>{item.description}</Text>
-    </View>
+      >
+        {item.icon ? (
+          <Image
+            source={item.icon}
+            style={{
+              borderRadius: "100%",
+              backgroundColor: "#D9D9D9",
+              width: 50,
+              aspectRatio: 1 / 1,
+              marginRight: 10,
+            }}
+          />
+        ) : (
+          <View
+            style={{
+              borderRadius: "100%",
+              backgroundColor: "#D9D9D9",
+              width: 50,
+              aspectRatio: 1 / 1,
+              marginRight: 10,
+            }}
+          />
+        )}
+        <Text style={{ color: "white", fontWeight: "600" }}>
+          {item.description}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
@@ -244,7 +363,7 @@ const styles = StyleSheet.create({
     container: {},
     scanPhoto: {},
   },
-  mainHeading: { fontSize: 20, color: "white" },
+  mainHeading: { fontSize: 20, color: "white", fontWeight: "600" },
 
   modal: { backgroundColor: "#121212" },
   item: {

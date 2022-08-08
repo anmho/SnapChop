@@ -16,11 +16,12 @@ import ProfileStack from "../screens/ProfileScreen";
 import Test from "../screens/Test";
 // Stacks
 import ChatStack from "./ChatStack";
-import RecipesScreen from "../screens/RecipesScreen";
+import RecipesHomeScreen from "../screens/RecipesHomeScreen";
 import SnapChopStack from "./SnapChopStack";
 import TutorialsStack from "../screens/TutorialsStack";
 import RecipeScreen from "../screens/RecipeScreen";
-import BreakfastBowls from "../screens/BreakfastBowls";
+import RecipeCategoryScreen from "../screens/RecipeCategoryScreen";
+import StatBar from "../components/StatBar";
 const Tab = createBottomTabNavigator();
 
 export default function UserStack() {
@@ -30,21 +31,21 @@ export default function UserStack() {
   let screenOptions = {
     tabBarShowLabel: false,
     headerLeft: () => (
-      // <StatBar />
-      <Button
-        onPress={() => {
-          signOut(auth)
-            .then(() => {
-              // Sign-out successful.
-              user = null;
-            })
-            .catch((error) => {
-              // An error happened.
-              // should we do something with that error??
-            });
-        }}
-        title="Log Out"
-      />
+      <StatBar />
+      // <Button
+      //   onPress={() => {
+      //     signOut(auth)
+      //       .then(() => {
+      //         // Sign-out successful.
+      //         user = null;
+      //       })
+      //       .catch((error) => {
+      //         // An error happened.
+      //         // should we do something with that error??
+      //       });
+      //   }}
+      //   title="Log Out"
+      // />
     ),
   };
 
@@ -54,7 +55,6 @@ export default function UserStack() {
         activeColor="#f0edf6"
         inactiveColor="#3e2465"
         barStyle={{ backgroundColor: "#694fad" }}
-        // initialRouteName="SnapChopStack"
         initialRouteName="CameraStack"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, size }) => {
@@ -87,39 +87,18 @@ export default function UserStack() {
           tabBarStyle: { backgroundColor: "#000" },
         })}
       >
-        {/* <Tab.Screen
-          name="Test"
-          component={RecipeScreen}
-          options={{ ...screenOptions, headerShown: false }}
-        /> */}
-
-        {/* <Tab.Screen
-          name="Test"
-          component={SnapChopStack}
-          options={{ ...screenOptions, headerShown: false }}
-        /> */}
-
-        {/* <Tab.Screen
-          name="Test"
-          component={RecipeScreen}
-          options={{ ...screenOptions, headerShown: false }}
-        /> */}
-
-        {/* <Tab.Screen
-          name="SnapChopStack"
-          component={SnapChopStack}
-          options={{ ...screenOptions, headerShown: false }}
-        /> */}
-
         <Tab.Screen
           name="MapStack"
           component={MapStack}
-          options={{ ...screenOptions, headerShown: false }}
+          options={{
+            headerShown: false,
+            ...screenOptions,
+          }}
         />
         <Tab.Screen
           name="ChatStack"
           component={ChatStack}
-          options={{ headerShown: false, tabBarShowLabel: false }}
+          options={{ tabBarShowLabel: false }}
         />
         <Tab.Screen
           name="CameraStack"
@@ -129,7 +108,7 @@ export default function UserStack() {
         <Tab.Screen
           name="StoriesStack"
           component={StoriesScreen}
-          options={screenOptions}
+          options={{ ...screenOptions, headerShown: false }}
         />
         <Tab.Screen
           name="SpotlightStack"
