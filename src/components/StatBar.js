@@ -8,7 +8,9 @@ export default function StatBar({ navigation, screen }) {
   return (
     <View
       style={
-        screen === "Camera" ? styles.container.camera : styles.container.other
+        new Set(["Camera", "map"]).has(screen)
+          ? styles.container.camera
+          : styles.container.other
       }
     >
       {/* Profile Button */}
@@ -36,12 +38,13 @@ export default function StatBar({ navigation, screen }) {
             <Image
               style={styles.bitmojiImage}
               source={require("../../assets/snapchat/personalBitmoji.png")} //<i class="fa-solid fa-magnifying-glass"></i>
+              alt={"Bitmoji"}
             />
           </TouchableOpacity>
           {/* Search Button */}
           <View
             style={
-              screen === "Camera"
+              new Set(["Camera", "map"]).has(screen)
                 ? styles.iconContainer.camera
                 : styles.iconContainer.other
             }
@@ -49,18 +52,20 @@ export default function StatBar({ navigation, screen }) {
             <Icon
               name="search"
               size={15}
-              color={screen === "camera" ? "#ffffff" : "#646D78"}
+              color={
+                new Set(["Camera", "map"]).has(screen) ? "#ffffff" : "#646Df78"
+              }
             />
           </View>
         </View>
       )}
 
       {/* Different titles for different screensx */}
-      {screen === "map" && (
+      {/* {screen === "map" && (
         <View style={styles.barTitle}>
           <Text style={styles.barTitleText}>Map</Text>
         </View>
-      )}
+      )} */}
 
       {screen === "chat" && (
         <View style={styles.barTitle}>
