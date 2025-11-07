@@ -105,7 +105,7 @@ export default function RecipeScreen({
         </ScrollView>
 
         {/* Find Ingredients/Map Preview */}
-        <MapPreview />
+        <MapPreview navigation={navigation} />
         {/* Ingredients */}
         <Box p={5} borderRadius="md" bg="white" shadow={1}>
           <Text
@@ -235,7 +235,7 @@ function Ingredient({
   );
 }
 
-function MapPreview() {
+function MapPreview({ navigation }) {
   return (
     <Box
       // width={"100%"}
@@ -248,7 +248,7 @@ function MapPreview() {
       <Text fontSize={"xl"} fontWeight={"bold"} fontFamily={"Graphik-Medium"}>
         Find Ingredients
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("MapStack")}>
         <Center shadow={2}>
           <Image source={MapIng} width={"100%"} borderRadius={10} alt={"img"} />
         </Center>

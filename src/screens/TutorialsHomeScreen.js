@@ -70,7 +70,7 @@ function Heading({ navigation }) {
           <Ionicons name="chevron-back-outline" size={24} color="black" />
         </Box>
       </TouchableOpacity>
-      <Text fontSize={"2xl"} fontWeight="bold">
+      <Text fontSize={"2xl"} fontWeight="bold" fontFamily={"Graphik-Medium"}>
         How To
       </Text>
       <Box h={10} w={10} borderRadius={12} />
@@ -81,7 +81,12 @@ function Heading({ navigation }) {
 function Section({ title, items }) {
   return (
     <Box>
-      <Text ml={5} fontSize="2xl" fontWeight={"semibold"}>
+      <Text
+        ml={5}
+        fontSize="2xl"
+        fontWeight={"semibold"}
+        fontFamily={"Graphik-Medium"}
+      >
         {title}
       </Text>
       <ScrollView horizontal={true} style={{ margin: 10 }}>

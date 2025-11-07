@@ -9,6 +9,10 @@ import "./firebase";
 import RootNavigation from "./src/navigation/RootNavigation";
 import { NativeBaseProvider } from "native-base";
 
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs();
+
 const FONT_NAMES = {
   "Graphik-Light": require("./assets/fonts/Graphik-Light.otf"),
   "GraphikWide-ExtralightItalic": require("./assets/fonts/GraphikWide-ExtralightItalic.otf"),

@@ -157,7 +157,7 @@ let data = [
         description: "Snack Facts",
       },
     ],
-    more: { name: "Snap Chop", source: "SnapChopStack" },
+    // more: { name: "Snap Chop", source: "SnapChopStack" },
   },
   {
     title: "Food Lenses",
